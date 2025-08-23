@@ -17,7 +17,7 @@ export default function Footer({ isDarkMode }) {
         {/* Right side - Social links */}
         <div className="flex space-x-4">
           <a
-            href="https://github.com/iammansoor007"
+            href="https://github.com/Asfand-Yar-dev"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:opacity-70 transition-opacity"
@@ -27,7 +27,7 @@ export default function Footer({ isDarkMode }) {
             </svg>
           </a>
           <a
-            href="https://www.linkedin.com/in/themansoorshah/"
+            href="https://www.linkedin.com/in/asfandyar100/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:opacity-70 transition-opacity"
