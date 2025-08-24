@@ -2,6 +2,7 @@ import React from 'react';
 
 export default function Footer({ isDarkMode }) {
   return (
+    
     <footer className={`py-6 px-4 md:px-20 lg:px-20 transition-colors duration-300 ${isDarkMode ? 'bg-[#0f0f14] text-gray-300' : 'bg-[#F7F7F7] text-gray-600'}`}>
       <div className="flex flex-col md:flex-row justify-between items-center">
         {/* Left side - Creator name */}
