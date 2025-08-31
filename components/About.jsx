@@ -21,7 +21,7 @@ export default function About({ isDarkMode }) {
             viewport={{once: true}}
             className='flex justify-center mb-6'
             >
-                <h1 className={`text-[40px] mb-2 font-semibold  ${isDarkMode ? 'text-gray-200' : 'text-gray-800'
+                <h1 className={` shiny-text text-[40px] mb-2 font-semibold  ${isDarkMode ? 'text-gray-200' : 'text-gray-800'
               }`}
               >
                 About Me
