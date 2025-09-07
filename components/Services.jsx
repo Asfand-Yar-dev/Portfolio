@@ -2,22 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
-import {
-Code,
-PenTool,
-Bot,
-ShoppingCart,
-BrainCircuit,
-Layout,
-MessageSquare,
-Cloud,
-Server,
-Globe,
-ShoppingBag,
-Type,
-Palette,
-Zap,
-} from "lucide-react";
+import {Code,PenTool,Bot,ShoppingCart,BrainCircuit,Layout,MessageSquare,Cloud,Server,Globe,ShoppingBag,Type,Palette,Zap,} from "lucide-react";
 
 const services = {
   Web: [
