@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
 
 // Outfit font config
 const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["400", "500", "700"], // jo chahiye add kar lo
+  weight: ["400", "500", "700"],
+  display: "swap", // Add display swap for better font loading
 });
 
 export const metadata: Metadata = {
@@ -22,6 +24,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Preload critical images */}
+        <link rel="preload" as="image" href="/icon2.png" />
+      </head>
       <body className={`${outfit.className} antialiased`}>
         {children}
       </body>
