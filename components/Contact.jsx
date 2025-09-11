@@ -119,7 +119,7 @@ export default function Contact({ isDarkMode }) {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`p-3 rounded-full ${isDarkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-100 hover:bg-gray-200'} ${link.color} transition-colors duration-300`}
+                      className={`p-3 rounded-full ${isDarkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-100 hover:bg-gray-300'} ${link.color} transition-colors duration-300`}
                       whileHover={{ y: -3 }}
                       whileTap={{ scale: 0.95 }}
                     >
