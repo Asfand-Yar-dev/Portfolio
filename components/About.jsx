@@ -113,12 +113,12 @@ export default function About({ isDarkMode }) {
                   className={`text-lg leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'
                     }`}
                 >
-                    i also work with {' '}
+                    I help businesses launch {' '}
                     <span className='relative inline-block'>
                         <span className= {`relative z-10 font-semibold transition-colors duration-300 phrase-1 ${isDarkMode ? 'text-gray-200' : 'text-gray-600'
                         }`}
                     >
-                        Shopify and Wordpress
+                        responsive, fast, and SEO-friendly
                         </span>
 
                         <motion.span
@@ -136,7 +136,7 @@ export default function About({ isDarkMode }) {
                       transition={{ duration: 1.4, delay: 3.0, ease: 'easeOut' }}
                     />
                   </span>
-                  , helping businesses launch responsive, fast, and SEO-friendly websites and platforms
+                  , websites and platforms.
                 </p>
             </div>
             </motion.div>
