@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
+
 
 // Outfit font config
 const outfit = Outfit({
