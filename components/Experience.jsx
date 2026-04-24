@@ -57,24 +57,24 @@ const fadeUp = (delay = 0) => ({
 
 export default function Experience({ isDarkMode }) {
   const card = isDarkMode
-    ? "bg-[#0f1629] border border-[#1e2d4a]"
+    ? "bg-[#1c1c1e] border border-[#2d2d33]"
     : "bg-white border border-gray-200 shadow-sm"
 
   return (
     <section
       id="experience"
-      className={`relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#0a0d18]" : "bg-white"}`}
+      className={`relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#121214]" : "bg-white"}`}
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className={`absolute top-0 right-0 w-[600px] h-[500px] rounded-full blur-[140px] ${isDarkMode ? "bg-violet-900/15" : "bg-violet-100/50"}`} />
+        <div className={`absolute top-0 right-0 w-[600px] h-[500px] rounded-full blur-[140px] ${isDarkMode ? "bg-amber-900/15" : "bg-amber-100/50"}`} />
         <div className={`absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[120px] ${isDarkMode ? "bg-cyan-900/10" : "bg-cyan-50/60"}`} />
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header */}
         <motion.div {...fadeUp()} className="text-center mb-12 sm:mb-16">
-          <span className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-violet-900/30 text-violet-400 border border-violet-800/40" : "bg-violet-50 text-violet-600 border border-violet-200"}`}>
+          <span className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-amber-900/30 text-amber-400 border border-amber-800/40" : "bg-amber-50 text-amber-600 border border-amber-200"}`}>
             Work History
           </span>
           <h2 className={`text-4xl sm:text-5xl font-extrabold tracking-tight ${isDarkMode ? "text-white" : "text-gray-900"}`}>
@@ -88,7 +88,7 @@ export default function Experience({ isDarkMode }) {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
-          <div className={`absolute left-6 sm:left-8 top-0 bottom-0 w-px ${isDarkMode ? "bg-gradient-to-b from-violet-700/70 via-violet-800/40 to-violet-900/10" : "bg-gradient-to-b from-violet-300 via-violet-200 to-violet-100"}`} />
+          <div className={`absolute left-6 sm:left-8 top-0 bottom-0 w-px ${isDarkMode ? "bg-gradient-to-b from-amber-500/70 via-teal-500/40 to-teal-500/10" : "bg-gradient-to-b from-amber-300 via-teal-200 to-teal-100"}`} />
 
           <div className="space-y-8">
             {EXPERIENCES.map((exp, i) => (
@@ -98,7 +98,7 @@ export default function Experience({ isDarkMode }) {
                 className="relative pl-16 sm:pl-20"
               >
                 {/* Timeline dot */}
-                <div className={`absolute left-3.5 sm:left-5 top-6 w-5 h-5 rounded-full bg-gradient-to-br ${exp.gradient} shadow-lg ring-4 ${isDarkMode ? "ring-[#0a0d18]" : "ring-white"}`} />
+                <div className={`absolute left-3.5 sm:left-5 top-6 w-5 h-5 rounded-full bg-gradient-to-br ${exp.gradient} shadow-lg ring-4 ${isDarkMode ? "ring-[#121214]" : "ring-white"}`} />
 
                 <div className={`p-6 rounded-2xl ${card} transition-all duration-300 hover:-translate-y-1`}>
                   {/* Top row */}
@@ -112,7 +112,7 @@ export default function Experience({ isDarkMode }) {
                           {exp.role}
                         </h3>
                       </div>
-                      <p className={`text-base font-semibold ${isDarkMode ? "text-violet-400" : "text-violet-600"}`}>
+                      <p className={`text-base font-semibold ${isDarkMode ? "text-amber-400" : "text-amber-600"}`}>
                         {exp.company}
                       </p>
                     </div>

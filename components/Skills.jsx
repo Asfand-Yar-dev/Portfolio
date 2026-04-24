@@ -98,18 +98,18 @@ export default function Skills({ isDarkMode }) {
   }, [activeTab])
 
   const card = isDarkMode
-    ? "bg-[#0f1629] border border-[#1e2d4a]"
+    ? "bg-[#1c1c1e] border border-[#2d2d33]"
     : "bg-white border border-gray-200 shadow-sm"
 
   return (
     <section
       id="skills"
-      className={`relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#0a0d18]" : "bg-white"}`}
+      className={`relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#121214]" : "bg-white"}`}
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className={`absolute top-0 left-0 w-[600px] h-[600px] rounded-full blur-[150px] ${isDarkMode ? "bg-blue-900/10" : "bg-blue-50/80"}`} />
-        <div className={`absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full blur-[120px] ${isDarkMode ? "bg-purple-900/10" : "bg-purple-50/80"}`} />
+        <div className={`absolute top-0 left-0 w-[600px] h-[600px] rounded-full blur-[150px] ${isDarkMode ? "bg-amber-900/10" : "bg-amber-50/80"}`} />
+        <div className={`absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full blur-[120px] ${isDarkMode ? "bg-teal-900/10" : "bg-teal-50/80"}`} />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -119,7 +119,7 @@ export default function Skills({ isDarkMode }) {
           transition={{ duration: 0.55 }} viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <span className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-blue-900/30 text-blue-400 border border-blue-800/40" : "bg-blue-50 text-blue-600 border border-blue-200"}`}>
+          <span className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-amber-900/30 text-amber-400 border border-amber-800/40" : "bg-amber-50 text-amber-600 border border-amber-200"}`}>
             Expertise
           </span>
           <h2 className={`text-4xl sm:text-5xl font-extrabold tracking-tight ${isDarkMode ? "text-white" : "text-gray-900"}`}>
@@ -136,9 +136,9 @@ export default function Skills({ isDarkMode }) {
           transition={{ duration: 0.5, delay: 0.1 }} viewport={{ once: true }}
           className="flex justify-center mb-10"
         >
-          <div className={`relative flex p-1.5 rounded-2xl gap-0 overflow-hidden ${isDarkMode ? "bg-[#0f1629] border border-[#1e2d4a]" : "bg-gray-100 border border-gray-200"}`}>
+          <div className={`relative flex p-1.5 rounded-2xl gap-0 overflow-hidden ${isDarkMode ? "bg-[#1c1c1e] border border-[#2d2d33]" : "bg-gray-100 border border-gray-200"}`}>
             <motion.div
-              className="absolute top-1.5 bottom-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg"
+              className="absolute top-1.5 bottom-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-teal-600 shadow-lg"
               animate={{ left: indicator.left, width: indicator.width }}
               transition={{ type: "spring", stiffness: 350, damping: 28 }}
             />

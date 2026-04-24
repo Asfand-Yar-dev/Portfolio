@@ -83,7 +83,7 @@ function TypedText({ texts, isDarkMode }) {
       <motion.span
         animate={{ opacity: [1, 0, 1] }}
         transition={{ repeat: Infinity, duration: 0.9, ease: "easeInOut" }}
-        className={`inline-block w-[2px] h-[0.85em] ml-[2px] align-middle rounded-sm ${isDarkMode ? "bg-blue-400" : "bg-blue-600"}`}
+        className={`inline-block w-[2px] h-[0.85em] ml-[2px] align-middle rounded-sm ${isDarkMode ? "bg-amber-400" : "bg-amber-600"}`}
       />
     </span>
   );
@@ -120,14 +120,14 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
 
   const navBg = scrolled
     ? isDarkMode
-      ? "bg-[#080b14]/95 border-b border-[#1e2d4a] shadow-lg shadow-black/30"
+      ? "bg-[#0c0c0e]/95 border-b border-[#2d2d33] shadow-lg shadow-black/30"
       : "bg-white/95 border-b border-gray-200 shadow-lg shadow-gray-200/50"
     : "bg-transparent";
 
   return (
     <section
       id="home"
-      className={`min-h-screen flex flex-col relative overflow-hidden ${isDarkMode ? "bg-[#080b14]" : "bg-[#f8fafc]"}`}
+      className={`min-h-screen flex flex-col relative overflow-hidden ${isDarkMode ? "bg-[#0c0c0e]" : "bg-[#faf9f7]"}`}
     >
       {/* ── Background decoration ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -135,10 +135,10 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
           className={`absolute inset-0 ${isDarkMode ? "dot-grid-dark" : "dot-grid"} opacity-70`}
         />
         <div
-          className={`absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full blur-[140px] ${isDarkMode ? "bg-blue-900/20" : "bg-blue-100/80"}`}
+          className={`absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full blur-[140px] ${isDarkMode ? "bg-amber-900/20" : "bg-amber-100/80"}`}
         />
         <div
-          className={`absolute -bottom-32 -left-32 w-[600px] h-[600px] rounded-full blur-[120px] ${isDarkMode ? "bg-purple-900/20" : "bg-purple-100/60"}`}
+          className={`absolute -bottom-32 -left-32 w-[600px] h-[600px] rounded-full blur-[120px] ${isDarkMode ? "bg-teal-900/20" : "bg-teal-100/60"}`}
         />
       </div>
 
@@ -165,7 +165,7 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
                 className={`relative text-sm font-medium transition-colors duration-200 group ${isDarkMode ? "text-gray-400 hover:text-white" : "text-gray-600 hover:text-gray-900"}`}
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300 rounded-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-amber-500 to-teal-500 group-hover:w-full transition-all duration-300 rounded-full" />
               </button>
             ))}
           </div>
@@ -187,7 +187,7 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
             <motion.a
               href="/Latest_Resume.pdf"
               download
-              className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-sm font-semibold transition-all duration-200 shadow-md shadow-blue-500/20"
+              className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-amber-500 to-teal-600 hover:from-amber-600 hover:to-teal-700 text-white text-sm font-semibold transition-all duration-200 shadow-md shadow-amber-500/20"
               whileHover={{ scale: 1.04, y: -1 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -227,7 +227,7 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
                 ease: [0.25, 0.46, 0.45, 0.94],
                 duration: 0.3,
               }}
-              className={`fixed inset-y-0 right-0 z-50 w-72 flex flex-col ${isDarkMode ? "bg-[#0f1629]" : "bg-white"} shadow-2xl`}
+              className={`fixed inset-y-0 right-0 z-50 w-72 flex flex-col ${isDarkMode ? "bg-[#1c1c1e]" : "bg-white"} shadow-2xl`}
             >
               <div className="flex justify-between items-center p-6 border-b border-white/10">
                 <span className="font-extrabold shiny-text text-xl">
@@ -261,7 +261,7 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
                 <a
                   href="/Latest_Resume.pdf"
                   download
-                  className="flex items-center gap-2 justify-center w-full px-4 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold"
+                  className="flex items-center gap-2 justify-center w-full px-4 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-teal-600 text-white font-semibold"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <FiDownload size={16} />
@@ -310,7 +310,7 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
                   Asfand Yar
                 </h1>
                 <div
-                  className={`text-xl sm:text-2xl font-semibold h-9 ${isDarkMode ? "text-blue-400" : "text-blue-600"}`}
+                  className={`text-xl sm:text-2xl font-semibold h-9 ${isDarkMode ? "text-amber-400" : "text-amber-600"}`}
                 >
                   <TypedText texts={ROLES} isDarkMode={isDarkMode} />
                 </div>
@@ -337,7 +337,7 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
               >
                 <motion.button
                   onClick={() => scrollToSection("projects")}
-                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-sm shadow-lg shadow-blue-500/30 transition-all duration-200"
+                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-teal-600 hover:from-amber-600 hover:to-teal-700 text-white font-semibold text-sm shadow-lg shadow-amber-500/30 transition-all duration-200"
                   whileHover={{ scale: 1.04, y: -2 }}
                   whileTap={{ scale: 0.97 }}
                 >
@@ -371,16 +371,16 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
                 <div
                   className={`absolute inset-0 z-0 rounded-full scale-110 blur-2xl ${
                     isDarkMode
-                      ? "bg-gradient-to-br from-blue-600/25 via-purple-600/15 to-transparent"
-                      : "bg-gradient-to-br from-blue-300/50 via-purple-300/30 to-transparent"
+                      ? "bg-gradient-to-br from-amber-500/25 via-teal-500/15 to-transparent"
+                      : "bg-gradient-to-br from-amber-300/50 via-teal-300/30 to-transparent"
                   }`}
                 />
 
                 {/* Gradient ring */}
-                <div className="relative z-10 p-[3px] rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 shadow-2xl">
+                <div className="relative z-10 p-[3px] rounded-full bg-gradient-to-br from-amber-500 via-teal-500 to-emerald-500 shadow-2xl">
                   <div
                     className={`w-60 h-60 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden ${
-                      isDarkMode ? "bg-[#0f1629]" : "bg-blue-50"
+                      isDarkMode ? "bg-[#1c1c1e]" : "bg-blue-50"
                     } flex items-center justify-center`}
                   >
                     {!imageError ? (
@@ -408,8 +408,8 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
                   }}
                   className={`absolute z-20 -top-3 -right-2 sm:-right-6 px-3 py-2 rounded-2xl text-xs font-bold shadow-xl border ${
                     isDarkMode
-                      ? "bg-[#0f1629] border-blue-900/60 text-blue-300"
-                      : "bg-white border-blue-100 text-blue-700"
+                      ? "bg-[#1c1c1e] border-amber-900/60 text-amber-300"
+                      : "bg-white border-amber-100 text-amber-700"
                   }`}
                 >
                   ⚛️ React & Next.js
@@ -425,8 +425,8 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
                   }}
                   className={`absolute z-20 -bottom-3 -left-2 sm:-left-6 px-3 py-2 rounded-2xl text-xs font-bold shadow-xl border ${
                     isDarkMode
-                      ? "bg-[#0f1629] border-purple-900/60 text-purple-300"
-                      : "bg-white border-purple-100 text-purple-700"
+                      ? "bg-[#1c1c1e] border-teal-900/60 text-teal-300"
+                      : "bg-white border-teal-100 text-teal-700"
                   }`}
                 >
                   🟢 Node.js & MongoDB
@@ -442,7 +442,7 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
                   }}
                   className={`absolute z-20 top-1/2 -translate-y-1/2 -left-4 sm:-left-10 px-3 py-2 rounded-2xl text-xs font-bold shadow-xl border ${
                     isDarkMode
-                      ? "bg-[#0f1629] border-green-900/60 text-green-300"
+                      ? "bg-[#1c1c1e] border-green-900/60 text-green-300"
                       : "bg-white border-green-100 text-green-700"
                   }`}
                 >

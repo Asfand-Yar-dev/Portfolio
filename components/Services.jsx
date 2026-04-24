@@ -96,21 +96,21 @@ const fadeUp = (delay = 0) => ({
 
 export default function ServicesSection({ isDarkMode }) {
   const card = isDarkMode
-    ? "bg-[#0f1629] border border-[#1e2d4a] hover:border-blue-800/60"
-    : "bg-white border border-gray-200 hover:border-blue-300";
+    ? "bg-[#1c1c1e] border border-[#2d2d33] hover:border-amber-800/60"
+    : "bg-white border border-gray-200 hover:border-amber-300";
 
   return (
     <section
       id="services"
-      className={`relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#0a0d18]" : "bg-white"}`}
+      className={`relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#121214]" : "bg-white"}`}
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
-          className={`absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[140px] ${isDarkMode ? "bg-blue-900/10" : "bg-blue-50/70"}`}
+          className={`absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[140px] ${isDarkMode ? "bg-amber-900/10" : "bg-amber-50/70"}`}
         />
         <div
-          className={`absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[120px] ${isDarkMode ? "bg-purple-900/10" : "bg-purple-50/60"}`}
+          className={`absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[120px] ${isDarkMode ? "bg-teal-900/10" : "bg-teal-50/60"}`}
         />
       </div>
 
@@ -118,7 +118,7 @@ export default function ServicesSection({ isDarkMode }) {
         {/* Header */}
         <motion.div {...fadeUp()} className="text-center mb-14">
           <span
-            className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-blue-900/30 text-blue-400 border border-blue-800/40" : "bg-blue-50 text-blue-600 border border-blue-200"}`}
+            className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-amber-900/30 text-amber-400 border border-amber-800/40" : "bg-amber-50 text-amber-600 border border-amber-200"}`}
           >
             What I Do
           </span>
@@ -174,7 +174,7 @@ export default function ServicesSection({ isDarkMode }) {
           </p>
           <motion.a
             href="mailto:asfandyar273263@gmail.com"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-teal-600 hover:from-amber-600 hover:to-teal-700 text-white font-semibold text-sm shadow-lg shadow-amber-500/25 transition-all duration-200"
             whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.97 }}
           >

@@ -42,27 +42,27 @@ export default function Contact({ isDarkMode }) {
   }
 
   const card = isDarkMode
-    ? "bg-[#0f1629] border border-[#1e2d4a]"
+    ? "bg-[#1c1c1e] border border-[#2d2d33]"
     : "bg-white border border-gray-200 shadow-sm"
 
   const input = isDarkMode
-    ? "bg-[#080b14] border border-[#1e2d4a] text-gray-100 placeholder-gray-600 focus:border-blue-600"
-    : "bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400 focus:border-blue-500"
+    ? "bg-[#0c0c0e] border border-[#2d2d33] text-gray-100 placeholder-gray-600 focus:border-amber-500"
+    : "bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400 focus:border-amber-500"
 
   return (
     <section
       id="contact"
-      className={`relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#080b14]" : "bg-[#f8fafc]"}`}
+      className={`relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#0c0c0e]" : "bg-[#faf9f7]"}`}
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-[150px] ${isDarkMode ? "bg-blue-900/12" : "bg-blue-100/50"}`} />
+        <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-[150px] ${isDarkMode ? "bg-amber-900/12" : "bg-amber-100/50"}`} />
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
         <motion.div {...fadeUp()} className="text-center mb-10 sm:mb-14">
-          <span className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-blue-900/30 text-blue-400 border border-blue-800/40" : "bg-blue-50 text-blue-600 border border-blue-200"}`}>
+          <span className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-amber-900/30 text-amber-400 border border-amber-800/40" : "bg-amber-50 text-amber-600 border border-amber-200"}`}>
             Contact
           </span>
           <h2 className={`text-4xl sm:text-5xl font-extrabold tracking-tight ${isDarkMode ? "text-white" : "text-gray-900"}`}>
@@ -83,7 +83,7 @@ export default function Contact({ isDarkMode }) {
               </h3>
               {INFO.map(({ icon: Icon, label, value }) => (
                 <div key={label} className="flex items-start gap-3">
-                  <div className={`p-2.5 rounded-xl mt-0.5 ${isDarkMode ? "bg-blue-900/30 text-blue-400" : "bg-blue-50 text-blue-600"}`}>
+                  <div className={`p-2.5 rounded-xl mt-0.5 ${isDarkMode ? "bg-amber-900/30 text-amber-400" : "bg-amber-50 text-amber-600"}`}>
                     <Icon size={16} />
                   </div>
                   <div>
@@ -107,7 +107,7 @@ export default function Contact({ isDarkMode }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className={`p-3 rounded-xl border-2 transition-all duration-200 ${isDarkMode ? "border-[#1e2d4a] text-gray-400" : "border-gray-200 text-gray-500"} ${color}`}
+                    className={`p-3 rounded-xl border-2 transition-all duration-200 ${isDarkMode ? "border-[#2d2d33] text-gray-400" : "border-gray-200 text-gray-500"} ${color}`}
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.94 }}
                   >
@@ -159,7 +159,7 @@ export default function Contact({ isDarkMode }) {
                         type="text" name="name" value={form.name}
                         onChange={handleChange} required
                         placeholder="John Doe"
-                        className={`w-full pl-9 pr-4 py-3 rounded-xl text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${input}`}
+                        className={`w-full pl-9 pr-4 py-3 rounded-xl text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500/30 ${input}`}
                       />
                     </div>
                   </div>
@@ -171,7 +171,7 @@ export default function Contact({ isDarkMode }) {
                         type="email" name="email" value={form.email}
                         onChange={handleChange} required
                         placeholder="john@example.com"
-                        className={`w-full pl-9 pr-4 py-3 rounded-xl text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${input}`}
+                        className={`w-full pl-9 pr-4 py-3 rounded-xl text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500/30 ${input}`}
                       />
                     </div>
                   </div>
@@ -184,7 +184,7 @@ export default function Contact({ isDarkMode }) {
                     type="text" name="subject" value={form.subject}
                     onChange={handleChange} required
                     placeholder="Project inquiry / Collaboration / Say hello"
-                    className={`w-full px-4 py-3 rounded-xl text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${input}`}
+                    className={`w-full px-4 py-3 rounded-xl text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500/30 ${input}`}
                   />
                 </div>
 
@@ -197,7 +197,7 @@ export default function Contact({ isDarkMode }) {
                       name="message" value={form.message}
                       onChange={handleChange} required rows={5}
                       placeholder="Tell me about your project or idea..."
-                      className={`w-full pl-9 pr-4 py-3 rounded-xl text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/30 resize-none ${input}`}
+                      className={`w-full pl-9 pr-4 py-3 rounded-xl text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500/30 resize-none ${input}`}
                     />
                   </div>
                 </div>
@@ -205,7 +205,7 @@ export default function Contact({ isDarkMode }) {
                 <motion.button
                   type="submit"
                   disabled={submitting}
-                  className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-sm transition-all duration-200 ${submitting ? "opacity-70 cursor-not-allowed bg-gradient-to-r from-blue-600 to-purple-600" : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"} text-white shadow-lg shadow-blue-500/20`}
+                  className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-sm transition-all duration-200 ${submitting ? "opacity-70 cursor-not-allowed bg-gradient-to-r from-blue-600 to-purple-600" : "bg-gradient-to-r from-amber-500 to-teal-600 hover:from-amber-600 hover:to-teal-700"} text-white shadow-lg shadow-amber-500/20`}
                   whileHover={!submitting ? { scale: 1.02 } : {}}
                   whileTap={!submitting ? { scale: 0.98 } : {}}
                 >

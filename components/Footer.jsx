@@ -21,7 +21,7 @@ export default function Footer({ isDarkMode, scrollToSection }) {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" })
 
   return (
-    <footer className={`relative overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#060810] border-t border-[#1e2d4a]/60" : "bg-white border-t border-gray-200"}`}>
+    <footer className={`relative overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#0c0c0e] border-t border-[#2d2d33]/60" : "bg-white border-t border-gray-200"}`}>
       {/* Top gradient accent */}
       <div className={`h-px w-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent`} />
 
@@ -40,7 +40,7 @@ export default function Footer({ isDarkMode, scrollToSection }) {
                   key={label}
                   href={url} target="_blank" rel="noopener noreferrer"
                   aria-label={label}
-                  className={`p-2.5 rounded-xl border transition-all duration-200 ${isDarkMode ? "border-[#1e2d4a] text-gray-400 hover:bg-[#0f1629] hover:text-white hover:border-blue-800/50" : "border-gray-200 text-gray-500 hover:bg-gray-50 hover:text-gray-800"}`}
+                  className={`p-2.5 rounded-xl border transition-all duration-200 ${isDarkMode ? "border-[#2d2d33] text-gray-400 hover:bg-[#1c1c1e] hover:text-white hover:border-amber-800/50" : "border-gray-200 text-gray-500 hover:bg-gray-50 hover:text-gray-800"}`}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.94 }}
                 >
@@ -60,7 +60,7 @@ export default function Footer({ isDarkMode, scrollToSection }) {
                 <li key={link.id}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className={`text-sm transition-colors duration-200 hover:text-blue-500 ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}
+                    className={`text-sm transition-colors duration-200 hover:text-amber-500 ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}
                   >
                     {link.label}
                   </button>
@@ -78,7 +78,7 @@ export default function Footer({ isDarkMode, scrollToSection }) {
               <li>
                 <a
                   href="mailto:asfandyar273263@gmail.com"
-                  className={`text-sm transition-colors duration-200 hover:text-blue-500 ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}
+                  className={`text-sm transition-colors duration-200 hover:text-amber-500 ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}
                 >
                   asfandyar273263@gmail.com
                 </a>
@@ -88,7 +88,7 @@ export default function Footer({ isDarkMode, scrollToSection }) {
                 <a
                   href="/Latest_Resume.pdf"
                   download
-                  className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition-all duration-200"
+                  className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-amber-500 to-teal-600 text-white hover:from-amber-600 hover:to-teal-700 transition-all duration-200"
                 >
                   Download Resume
                 </a>
@@ -98,7 +98,7 @@ export default function Footer({ isDarkMode, scrollToSection }) {
         </div>
 
         {/* Divider */}
-        <div className={`h-px w-full mb-8 ${isDarkMode ? "bg-[#1e2d4a]/60" : "bg-gray-200"}`} />
+        <div className={`h-px w-full mb-8 ${isDarkMode ? "bg-[#2d2d33]/60" : "bg-gray-200"}`} />
 
         {/* Bottom row */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
@@ -106,7 +106,7 @@ export default function Footer({ isDarkMode, scrollToSection }) {
 
           <motion.button
             onClick={scrollTop}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${isDarkMode ? "bg-[#0f1629] border border-[#1e2d4a] text-gray-300 hover:border-blue-800/50 hover:text-white" : "bg-gray-100 border border-gray-200 text-gray-600 hover:bg-gray-200"}`}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${isDarkMode ? "bg-[#1c1c1e] border border-[#2d2d33] text-gray-300 hover:border-amber-800/50 hover:text-white" : "bg-gray-100 border border-gray-200 text-gray-600 hover:bg-gray-200"}`}
             whileHover={{ scale: 1.05, y: -1 }}
             whileTap={{ scale: 0.97 }}
           >

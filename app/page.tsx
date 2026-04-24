@@ -38,7 +38,7 @@ export default function Page() {
   };
 
   return (
-    <div className={`transition-colors duration-500 ${isDarkMode ? "bg-[#080b14]" : "bg-[#f8fafc]"}`}>
+    <div className={`transition-colors duration-500 ${isDarkMode ? "bg-[#0c0c0e]" : "bg-[#faf9f7]"}`}>
       <Hero
         isDarkMode={isDarkMode}
         toggleTheme={toggleTheme}

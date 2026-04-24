@@ -138,7 +138,7 @@ const CATEGORY_COLORS = {
 function ProjectCard({ project, isDarkMode }) {
   return (
     <motion.div
-      className={`rounded-2xl overflow-hidden border h-full ${isDarkMode ? "bg-[#0f1629] border-[#1e2d4a]" : "bg-white border-gray-200"}`}
+      className={`rounded-2xl overflow-hidden border h-full ${isDarkMode ? "bg-[#1c1c1e] border-[#2d2d33]" : "bg-white border-gray-200"}`}
       whileHover={{
         y: -6,
         boxShadow: isDarkMode
@@ -198,7 +198,7 @@ function ProjectCard({ project, isDarkMode }) {
               href={project.live}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-amber-500 to-teal-600 text-white hover:from-amber-600 hover:to-teal-700 transition-colors duration-200"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -223,14 +223,14 @@ export default function Projects({ isDarkMode }) {
   return (
     <section
       id="projects"
-      className={`relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#080b14]" : "bg-[#f8fafc]"}`}
+      className={`relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#0c0c0e]" : "bg-[#faf9f7]"}`}
     >
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
-          className={`absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full blur-[130px] ${isDarkMode ? "bg-blue-900/15" : "bg-blue-100/60"}`}
+          className={`absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full blur-[130px] ${isDarkMode ? "bg-amber-900/15" : "bg-amber-100/60"}`}
         />
         <div
-          className={`absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[100px] ${isDarkMode ? "bg-purple-900/15" : "bg-purple-100/50"}`}
+          className={`absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[100px] ${isDarkMode ? "bg-teal-900/15" : "bg-teal-100/50"}`}
         />
       </div>
 
@@ -243,7 +243,7 @@ export default function Projects({ isDarkMode }) {
           className="text-center mb-12"
         >
           <span
-            className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-blue-900/30 text-blue-400 border border-blue-800/40" : "bg-blue-50 text-blue-600 border border-blue-200"}`}
+            className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-amber-900/30 text-amber-400 border border-amber-800/40" : "bg-amber-50 text-amber-600 border border-amber-200"}`}
           >
             Portfolio
           </span>
@@ -273,7 +273,7 @@ export default function Projects({ isDarkMode }) {
               onClick={() => setActiveFilter(f)}
               className={`px-5 py-2 rounded-full text-sm font-semibold border transition-colors duration-200 ${
                 activeFilter === f
-                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white border-transparent shadow-lg shadow-blue-500/20"
+                  ? "bg-gradient-to-r from-amber-500 to-teal-600 text-white border-transparent shadow-lg shadow-amber-500/20"
                   : isDarkMode
                     ? "bg-transparent text-gray-400 border-gray-700 hover:border-gray-500 hover:text-gray-200"
                     : "bg-white text-gray-600 border-gray-300 hover:border-gray-400"

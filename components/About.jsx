@@ -49,18 +49,18 @@ const fadeUp = (delay = 0) => ({
 
 export default function About({ isDarkMode }) {
   const card = isDarkMode
-    ? "bg-[#0f1629] border border-[#1e2d4a]"
+    ? "bg-[#1c1c1e] border border-[#2d2d33]"
     : "bg-white border border-gray-200 shadow-sm";
 
   return (
     <section
       id="about"
-      className={`flex items-center relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#080b14]" : "bg-[#f8fafc]"}`}
+      className={`flex items-center relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#0c0c0e]" : "bg-[#faf9f7]"}`}
     >
       {/* Background accent */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
-          className={`absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[120px] ${isDarkMode ? "bg-purple-900/15" : "bg-purple-100/50"}`}
+          className={`absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[120px] ${isDarkMode ? "bg-teal-900/15" : "bg-teal-100/50"}`}
         />
       </div>
 
@@ -68,7 +68,7 @@ export default function About({ isDarkMode }) {
         {/* Section header */}
         <motion.div {...fadeUp()} className="text-center mb-10 sm:mb-16">
           <span
-            className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-blue-900/30 text-blue-400 border border-blue-800/40" : "bg-blue-50 text-blue-600 border border-blue-200"}`}
+            className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-amber-900/30 text-amber-400 border border-amber-800/40" : "bg-amber-50 text-amber-600 border border-amber-200"}`}
           >
             Who I Am
           </span>
@@ -142,9 +142,9 @@ export default function About({ isDarkMode }) {
                   className={`p-4 rounded-2xl ${card} transition-all duration-200 hover:-translate-y-1`}
                 >
                   <div
-                    className={`p-2 rounded-lg w-fit mb-3 ${isDarkMode ? "bg-blue-900/40" : "bg-blue-50"}`}
+                    className={`p-2 rounded-lg w-fit mb-3 ${isDarkMode ? "bg-amber-900/40" : "bg-amber-50"}`}
                   >
-                    <Icon className="text-blue-500" size={18} />
+                    <Icon className="text-amber-500" size={18} />
                   </div>
                   <p
                     className={`text-sm font-bold mb-1 ${isDarkMode ? "text-white" : "text-gray-900"}`}
@@ -175,7 +175,7 @@ export default function About({ isDarkMode }) {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3 + i * 0.03, duration: 0.3 }}
                     viewport={{ once: true }}
-                    className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200 hover:-translate-y-0.5 cursor-default ${isDarkMode ? "bg-[#0f1629] border-[#1e2d4a] text-gray-300 hover:border-blue-700/60" : "bg-white border-gray-200 text-gray-600 hover:border-blue-300 shadow-sm"}`}
+                    className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200 hover:-translate-y-0.5 cursor-default ${isDarkMode ? "bg-[#1c1c1e] border-[#2d2d33] text-gray-300 hover:border-amber-700/60" : "bg-white border-gray-200 text-gray-600 hover:border-amber-300 shadow-sm"}`}
                   >
                     {tech}
                   </motion.span>
