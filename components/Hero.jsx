@@ -412,7 +412,7 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
                       : "bg-white border-amber-100 text-amber-700"
                   }`}
                 >
-                  ⚛️ React & Next.js
+                  💻 Python & LLMs
                 </motion.div>
 
                 <motion.div
@@ -429,7 +429,7 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
                       : "bg-white border-teal-100 text-teal-700"
                   }`}
                 >
-                  🟢 Node.js & MongoDB
+                  🔗 LangChain & RAG
                 </motion.div>
 
                 <motion.div
@@ -446,7 +446,7 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
                       : "bg-white border-green-100 text-green-700"
                   }`}
                 >
-                  🚀 Full Stack
+                  ⚡ Prompt Engineer
                 </motion.div>
               </motion.div>
             </div>
