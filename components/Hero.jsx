@@ -135,10 +135,10 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
           className={`absolute inset-0 ${isDarkMode ? "dot-grid-dark" : "dot-grid"} opacity-70`}
         />
         <div
-          className={`absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full blur-[140px] ${isDarkMode ? "bg-amber-900/20" : "bg-amber-100/80"}`}
+          className={`absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full blur-[140px] ${isDarkMode ? "bg-amber-900/20" : "bg-amber-100/30"}`}
         />
         <div
-          className={`absolute -bottom-32 -left-32 w-[600px] h-[600px] rounded-full blur-[120px] ${isDarkMode ? "bg-teal-900/20" : "bg-teal-100/60"}`}
+          className={`absolute -bottom-32 -left-32 w-[600px] h-[600px] rounded-full blur-[120px] ${isDarkMode ? "bg-teal-900/20" : "bg-teal-100/25"}`}
         />
       </div>
 
@@ -162,7 +162,7 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative text-sm font-medium transition-colors duration-200 group ${isDarkMode ? "text-gray-400 hover:text-white" : "text-gray-600 hover:text-gray-900"}`}
+                className={`relative text-sm font-medium transition-colors duration-200 group ${isDarkMode ? "text-gray-400 hover:text-white" : "text-gray-700 hover:text-gray-900"}`}
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-amber-500 to-teal-500 group-hover:w-full transition-all duration-300 rounded-full" />
@@ -321,7 +321,7 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className={`text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0 ${isDarkMode ? "text-gray-300" : "text-gray-700"}`}
+                className={`text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0 ${isDarkMode ? "text-gray-300" : "text-gray-800"}`}
               >
                 I build AI-powered backend systems with Python, LLMs, and RAG
                 pipelines turning complex language models into scalable,
@@ -471,7 +471,7 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
                   {stat.value}
                 </div>
                 <div
-                  className={`text-sm font-medium ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}
+                  className={`text-sm font-medium ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}
                 >
                   {stat.label}
                 </div>
