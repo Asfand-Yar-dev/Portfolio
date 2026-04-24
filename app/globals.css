@@ -6,13 +6,13 @@
   box-sizing: border-box;
 }
 
-/* Smooth colour transitions on theme toggle only  excludes transform/opacity
+/* Smooth colour transitions on theme toggle only — excludes transform/opacity
    so Framer Motion animations are never blocked or delayed. */
 *,
 *::before,
 *::after {
-  transition-property: background-color, border-color, color;
-  transition-duration: 250ms;
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 400ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
