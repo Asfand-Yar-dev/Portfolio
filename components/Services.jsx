@@ -1,215 +1,187 @@
-import { useState, useRef, useEffect } from "react";
+"use client";
+
 import { motion } from "framer-motion";
-import Particles from "react-particles";
-import { loadFull } from "tsparticles";
-import {Code,PenTool,Bot,ShoppingCart,BrainCircuit,Layout,MessageSquare,Cloud,Server,Globe,ShoppingBag,Type,Palette,Zap,} from "lucide-react";
+import {
+  BrainCircuit,
+  Server,
+  Bot,
+  Database,
+  Mic,
+  Code,
+  Zap,
+  Globe,
+} from "lucide-react";
 
-const services = {
-  Web: [
-    {
-      icon: <Code className="w-5 h-5" />,
-      title: "WEB DEVELOPMENT",
-      description: "Custom websites and full-stack web apps using React & Node. Fast, scalable, and mobile-first builds.",
-      color: "from-blue-400 to-blue-600",
-    },
-    {
-      icon: <Globe className="w-5 h-5" />,
-      title: "LANDING PAGES",
-      description: "SEO-optimized, high-converting pages. Built for speed, leads, and smooth animations.",
-      color: "from-green-400 to-green-600",
-    },
-    {
-      icon: <ShoppingBag className="w-5 h-5" />,
-      title: "SHOPIFY STORES",
-      description: "Custom Shopify themes with fast checkout. Clean UX and app integrations that convert.",
-      color: "from-emerald-400 to-emerald-600",
-    },
-    {
-      icon: <Type className="w-5 h-5" />,
-      title: "WORDPRESS SITES",
-      description: "Custom themes and plugins with ACF and Elementor. Fully editable and blazing fast.",
-      color: "from-sky-400 to-sky-600",
-    },
-    {
-      icon: <Bot className="w-5 h-5 text-white" />,
-      title: "CUSTOM CHAT BOT",
-      description: "AI-powered bots using GPT & Dialogflow. Handles leads, FAQs, and boosts conversions 24/7.",
-      color: "from-purple-400 to-purple-600",
-    },
-    {
-      icon: <ShoppingCart className="w-5 h-5" />,
-      title: "E-COMMERCE",
-      description: "Scalable full-stack e-com with secure payments, inventory management & user auth.",
-      color: "from-orange-400 to-orange-600",
-    },
-  ],
-  Design: [
-    {
-      icon: <PenTool className="w-5 h-5" />,
-      title: "UI/UX DESIGN",
-      description: "Modern, clean UI built in Figma. Every screen designed to engage and convert.",
-      color: "from-pink-400 to-pink-600",
-    },
-    {
-      icon: <Palette className="w-5 h-5" />,
-      title: "DESIGN SYSTEMS",
-      description: "Reusable components and token systems that scale with your brand. Built for devs too.",
-      color: "from-fuchsia-400 to-fuchsia-600",
-    },
-    {
-      icon: <Zap className="w-5 h-5" />,
-      title: "ANIMATED INTERFACES",
-      description: "Using Framer Motion + Tailwind for buttery-smooth transitions that feel alive.",
-      color: "from-yellow-400 to-yellow-600",
-    },
-  ],
-};
+const SERVICES = [
+  {
+    icon: BrainCircuit,
+    title: "Prompt Engineering",
+    description:
+      "Designing, optimizing, and evaluating prompts for LLMs to maximize accuracy, consistency, and performance across enterprise use cases.",
+    gradient: "from-violet-500 to-indigo-700",
+    glow: "group-hover:shadow-violet-500/20",
+  },
+  {
+    icon: Bot,
+    title: "RAG Pipeline Development",
+    description:
+      "End-to-end Retrieval-Augmented Generation systems with vector search, semantic chunking, and context-aware LLM responses for accurate document Q&A.",
+    gradient: "from-cyan-500 to-teal-700",
+    glow: "group-hover:shadow-cyan-500/20",
+  },
+  {
+    icon: Mic,
+    title: "AI Voice Agents",
+    description:
+      "Conversational voice agents powered by local or cloud LLMs with RAG integration  fully offline capable, low-latency, and production-ready.",
+    gradient: "from-purple-500 to-violet-700",
+    glow: "group-hover:shadow-purple-500/20",
+  },
+  {
+    icon: Server,
+    title: "AI Backend APIs",
+    description:
+      "Scalable Python backends with FastAPI and Node.js, integrating LLM capabilities, vector databases, and third-party AI APIs for real-world applications.",
+    gradient: "from-green-500 to-emerald-700",
+    glow: "group-hover:shadow-green-500/20",
+  },
+  {
+    icon: Database,
+    title: "Data Pipeline & Processing",
+    description:
+      "Automated ETL pipelines to extract, clean, and format raw data into high-quality datasets for ML training, benchmarking, and AI evaluation.",
+    gradient: "from-teal-500 to-cyan-700",
+    glow: "group-hover:shadow-teal-500/20",
+  },
+  {
+    icon: Code,
+    title: "LLM Integration",
+    description:
+      "Seamlessly integrating OpenAI, local LLMs via LM Studio, and open-source models into existing products  with evaluation pipelines and performance tracking.",
+    gradient: "from-blue-500 to-indigo-700",
+    glow: "group-hover:shadow-blue-500/20",
+  },
+  {
+    icon: Code,
+    title: "Frontend Development",
+    description:
+      "Responsive, pixel-perfect UIs built with React and Next.js, Tailwind CSS, and Framer Motion  from landing pages to full web applications.",
+    gradient: "from-blue-500 to-indigo-700",
+    glow: "group-hover:shadow-blue-500/20",
+  },
+  {
+    icon: Globe,
+    title: "Client Web Projects",
+    description:
+      "End-to-end websites for clients with clean design, mobile-first layout, SEO optimisation, and fast deployment  from healthcare to SaaS.",
+    gradient: "from-rose-500 to-pink-700",
+    glow: "group-hover:shadow-rose-500/20",
+  },
+  {
+    icon: Zap,
+    title: "AI Performance Tuning",
+    description:
+      "Benchmarking open-source and proprietary LLMs, reducing latency, and optimising inference pipelines for production AI systems.",
+    gradient: "from-yellow-400 to-orange-600",
+    glow: "group-hover:shadow-yellow-500/20",
+  },
+];
 
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.5, delay },
+  viewport: { once: true },
+});
 
 export default function ServicesSection({ isDarkMode }) {
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
+  const card = isDarkMode
+    ? "bg-[#0f1629] border border-[#1e2d4a] hover:border-blue-800/60"
+    : "bg-white border border-gray-200 hover:border-blue-300";
 
   return (
-    <section className={`relative py-16 px-4 sm:px-6 lg:px-8 min-h-screen overflow-hidden ${isDarkMode ? "bg-[#0f0f14]" : "bg-[#F7F7F7]"}`}>
-      <Particles
-        className="absolute inset-0 -z-10"
-        id="tsparticles"
-        init={particlesInit}
-        options={{
-          fullScreen: false,
-          background: {
-            color: isDarkMode ? "#0f0f14" : "#F7F7F7",
-          },
-          fpsLimit: 60,
-          interactivity: {
-            events: {
-              onHover: { enable: true, mode: "repulse" },
-              resize: true,
-            },
-            modes: {
-              repulse: { distance: 100, duration: 0.4 },
-            },
-          },
-          particles: {
-            color: { value: "#ffffff" },
-            links: {
-              color: "#ffffff",
-              distance: 150,
-              enable: true,
-              opacity: 0.2,
-              width: 1,
-            },
-            collisions: { enable: false },
-            move: {
-              direction: "none",
-              enable: true,
-              outModes: { default: "bounce" },
-              random: true,
-              speed: 0.5,
-              straight: false,
-            },
-            number: {
-              density: { enable: true, area: 800 },
-              value: 60,
-            },
-            opacity: {
-              value: 0.2,
-            },
-            shape: {
-              type: ["circle", "square", "polygon"],
-            },
-            size: {
-              value: { min: 1, max: 5 },
-            },
-          },
-          detectRetina: true,
-        }}
-      />
+    <section
+      id="services"
+      className={`relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#0a0d18]" : "bg-white"}`}
+    >
+      {/* Background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div
+          className={`absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[140px] ${isDarkMode ? "bg-blue-900/10" : "bg-blue-50/70"}`}
+        />
+        <div
+          className={`absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[120px] ${isDarkMode ? "bg-purple-900/10" : "bg-purple-50/60"}`}
+        />
+      </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div
-          className="text-center mb-12 md:mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h1 className={`shiny-text text-5xl sm:text-6xl md:text-7xl font-bold leading-tight mb-6 ${isDarkMode ? 'text-gray-100' : 'text-gray-900'}`}>
-            SERVICES I OFFERED
-          </h1>
+        {/* Header */}
+        <motion.div {...fadeUp()} className="text-center mb-14">
+          <span
+            className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-blue-900/30 text-blue-400 border border-blue-800/40" : "bg-blue-50 text-blue-600 border border-blue-200"}`}
+          >
+            What I Do
+          </span>
+          <h2
+            className={`text-4xl sm:text-5xl font-extrabold tracking-tight ${isDarkMode ? "text-white" : "text-gray-900"}`}
+          >
+            Services I <span className="shiny-text">Offer</span>
+          </h2>
+          <p
+            className={`mt-4 text-base max-w-xl mx-auto ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}
+          >
+            From prompt design to production AI systems end-to-end Gen AI
+            backend services.
+          </p>
         </motion.div>
 
-        <TabSwitcher isDarkMode={isDarkMode} />
-      </div>
-    </section>
-  );
-}
-
-function TabSwitcher({ isDarkMode }) {
-  const [activeTab, setActiveTab] = useState("Web");
-  const tabRefs = useRef([]);
-  const [indicator, setIndicator] = useState({ width: 0, left: 0 });
-
-  useEffect(() => {
-    const index = Object.keys(services).indexOf(activeTab);
-    const tab = tabRefs.current[index];
-    if (tab) {
-      setIndicator({ width: tab.offsetWidth, left: tab.offsetLeft });
-    }
-  }, [activeTab]);
-
-  return (
-    <div className="w-full">
-      <div className="relative flex justify-center mb-8 sm:mb-12 overflow-x-auto scrollbar-hide">
-        <div className={`flex ${isDarkMode ? "bg-gray-800" : "bg-gray-100"} rounded-full p-1 relative w-max`}>
-          <div
-            className="absolute top-1 h-[calc(100%-8px)] rounded-full bg-gradient-to-r from-purple-500 to-blue-600 z-0 transition-all duration-300"
-            style={{ width: `${indicator.width}px`, left: `${indicator.left}px` }}
-          />
-          {Object.keys(services).map((tab, index) => (
-            <button
-              key={tab}
-              ref={(el) => (tabRefs.current[index] = el)}
-              onClick={() => setActiveTab(tab)}
-              className={`relative z-10 px-6 py-2 text-sm font-medium rounded-full transition-colors duration-200 ${activeTab === tab
-                ? "text-white"
-                : isDarkMode
-                  ? "text-gray-300 hover:text-white"
-                  : "text-gray-600 hover:text-gray-900"
-                }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 min-h-[160px]">
-        {services[activeTab].map((service, index) => (
-          <div
-            key={`${activeTab}-${index}`}
-            className={`rounded-xl p-6 ${isDarkMode ? "bg-gray-900/80" : "bg-white"
-              } shadow-sm border ${isDarkMode ? "border-gray-700" : "border-gray-200"
-              } transition-all duration-300 hover:scale-[1.02] hover:shadow-lg backdrop-blur-md`}
-          >
-            <div className="flex items-start gap-4 mb-4">
-              <div className={`p-3 rounded-lg bg-gradient-to-r ${service.color} transition-transform duration-300 hover:scale-110`}>
-                {service.icon}
-              </div>
-              <div>
-                <h3 className={`text-lg font-bold ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {SERVICES.map((service, i) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={service.title}
+                {...fadeUp(i * 0.06)}
+                className={`group p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${service.glow} ${card}`}
+              >
+                <div
+                  className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 bg-gradient-to-br ${service.gradient} shadow-md`}
+                >
+                  <Icon className="text-white" size={20} />
+                </div>
+                <h3
+                  className={`text-base font-bold mb-2 leading-snug ${isDarkMode ? "text-white" : "text-gray-900"}`}
+                >
                   {service.title}
                 </h3>
-                <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>
+                <p
+                  className={`text-sm leading-relaxed ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}
+                >
                   {service.description}
                 </p>
-              </div>
-            </div>
-          </div>
-        ))}
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* CTA */}
+        <motion.div {...fadeUp(0.3)} className="mt-14 text-center">
+          <p
+            className={`text-base mb-5 ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}
+          >
+            Have a project in mind? Let's build something great together.
+          </p>
+          <motion.a
+            href="mailto:asfandyar273263@gmail.com"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 transition-all duration-200"
+            whileHover={{ scale: 1.04, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            Start a Project →
+          </motion.a>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 }

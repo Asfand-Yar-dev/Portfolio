@@ -1,259 +1,311 @@
-// import { motion } from 'framer-motion';
-// import { useState } from 'react';
-// import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-// // import wizardImg from '../assets/wizard.png';
-// // import removerImg from '../assets/remover.png';
-// // import ochiImg from '../assets/ochi.png';
-// // import netflixImg from '../assets/netflix 2.0.png';
-// // import todesktopImg from '../assets/todesktop.png';
-// // import mirandaImg from '../assets/miranda.png';
+"use client";
 
-// const projects = [
-//   {
-//     title: 'WizardZ App',
-//     description: 'Redesigned digital marketing agency portfolio with modern UI/UX. Highlights services, animations, and smooth navigation.',
-//     technologies: ['HTML', 'GSAP', 'Javascript', 'CSS'],
-//     githubLink: 'https://github.com/iammansoor007',
-//     liveLink: 'https://www.linkedin.com/in/themansoorshah/',
-//     // image: wizardImg,
-//   },
-//   {
-//     title: 'AI Background Remover',
-//     description: 'AI-powered image tool with real-time background removal, secure authentication, and user-friendly interface.',
-//     technologies: ['React', 'Tailwind CSS', 'Clerk', 'Javascript'],
-//     githubLink: 'https://github.com/iammansoor007',
-//     liveLink: 'https://www.linkedin.com/in/themansoorshah/', //image: removerImg,
-//   },
-//   {
-//     title: 'Ochi Design',
-//     description: 'A creative design agency website with innovative interactions, smooth animations, and engaging transitions.',
-//     technologies: ['React', 'Framer Motion', 'Javascript', 'Tailwind CSS'],
-//     githubLink: 'https://github.com/iammansoor007',
-//     liveLink: 'https://www.linkedin.com/in/themansoorshah/', //image: ochiImg,
-//   },
-//   {
-//     title: 'Netflix 2.0',
-//     description: 'A Netflix-inspired streaming platform with video playback, user authentication, and real-time data display.',
-//     technologies: ['React', 'Javascript', 'Tailwind CSS', 'TMDB API'],
-//     githubLink: 'https://github.com/iammansoor007',
-//     liveLink: 'https://www.linkedin.com/in/themansoorshah/', //image: netflixImg,
-//   },
-//   {
-//     title: 'ToDesktop',
-//     description: 'A desktop application with modern design, intuitive user experience, and seamless navigation.',
-//     technologies: ['React', 'Tailwind CSS', 'Javascript'],
-//     githubLink: 'https://github.com/iammansoor007',
-//     liveLink: 'https://www.linkedin.com/in/themansoorshah/',// image: todesktopImg,
-//   },
-//   {
-//     title: 'Miranda',
-//     description: 'A modern portfolio and showcase application with elegant design, rich animations, and seamless visual blending.',
-//     technologies: ['React', 'GSAP', 'Javascript', 'Tailwind CSS'],
-//     githubLink: 'https://github.com/iammansoor007',
-//     liveLink: 'https://www.linkedin.com/in/themansoorshah/', //image: mirandaImg,
-//   }
-// ];
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiExternalLink, FiStar } from "react-icons/fi";
 
-// function ProjectCard({ project, isDarkMode }) {
-//   return (
-//     <motion.div
-//       className={`p-6 rounded-2xl shadow-lg transition-all duration-300 cursor-pointer ${isDarkMode ? 'bg-[#1a1a1d]' : 'bg-white border border-gray-200 hover:shadow-2xl'
-//         }`}
-//       whileHover={{
-//         y: -8,
-//         scale: 1.02
-//       }}
-//       transition={{ type: "tween", duration: 0.15 }}
-//     >
-//       {/* Project Image */}
-//       <div className="w-full h-56 rounded-lg mb-4 overflow-hidden">
-//         <motion.img
-//           src={project.image}
-//           alt={project.title}
-//           className="w-full h-full object-contain rounded-lg"
-//           whileHover={{
-//             scale: 1.02,
-//             transition: { type: "spring", stiffness: 300, damping: 20 }
-//           }}
-//         />
-//       </div>
+const PROJECTS = [
+  {
+    title: "AI Powered Voice Agent",
+    description:
+      "Conversational voice agent built with RAG and a local LLM served via LM Studio. Processes user speech, retrieves context from a vector store, and generates accurate responses  fully offline, zero cloud dependency.",
+    tech: [
+      "Python",
+      "LM Studio",
+      "RAG",
+      "LangChain",
+      "Vector DB",
+      "Speech API",
+    ],
+    category: "AI & ML",
+    featured: true,
+    gradient: "from-violet-600 via-purple-600 to-indigo-700",
+    live: null,
+  },
+  {
+    title: "LLM Prompt Optimization Engine",
+    description:
+      "Prompt engineering framework to benchmark and optimize LLM outputs. Includes automated evaluation pipelines, few-shot template generation, and performance tracking across model versions.",
+    tech: [
+      "Python",
+      "OpenAI API",
+      "Prompt Engineering",
+      "FastAPI",
+      "PostgreSQL",
+    ],
+    category: "AI & ML",
+    featured: false,
+    gradient: "from-cyan-500 via-teal-600 to-emerald-700",
+    live: null,
+  },
+  {
+    title: "AI Dataset Pipeline",
+    description:
+      "Automated ETL pipeline to extract, clean, and format raw datasets for machine learning model training and benchmarking. Cut data preparation time by over 60%.",
+    tech: ["Python", "Pandas", "NumPy", "REST API", "Data Processing"],
+    category: "AI & ML",
+    featured: false,
+    gradient: "from-green-500 via-emerald-600 to-teal-700",
+    live: null,
+  },
+  {
+    title: "Healing Hands of Virginia",
+    description:
+      "Client website for a healthcare practice in Virginia. Clean, accessible design with appointment booking, service listings, and mobile-first layout.",
+    tech: ["Web Development", "Responsive Design", "SEO", "UI/UX"],
+    category: "Client",
+    featured: false,
+    gradient: "from-rose-500 via-pink-600 to-fuchsia-700",
+    live: "https://healinghandsofvirginia.com",
+  },
+  {
+    title: "my1ai.app",
+    description:
+      "AI-powered web application for clients. Features intelligent automation, a clean user interface, and seamless API integrations for real-world AI use cases.",
+    tech: ["AI Integration", "Web App", "API", "UI/UX"],
+    category: "Client",
+    featured: false,
+    gradient: "from-blue-500 via-indigo-600 to-violet-700",
+    live: "https://my1ai.app",
+  },
+  {
+    title: "Python AI Chatbot",
+    description:
+      "Intelligent chatbot with natural language processing using NLTK and intent classification, backed by a Flask REST API.",
+    tech: ["Python", "NLTK", "TensorFlow", "Flask", "REST API"],
+    category: "Backend",
+    featured: false,
+    gradient: "from-orange-500 via-amber-600 to-yellow-600",
+    live: null,
+  },
+  {
+    title: "Developer Portfolio",
+    description:
+      "This portfolio built with Next.js, Framer Motion animations, dark/light theme, lazy-loaded sections, and a fully responsive mobile-first design.",
+    tech: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"],
+    category: "Frontend",
+    featured: false,
+    gradient: "from-pink-500 via-rose-500 to-orange-500",
+    live: null,
+  },
+  {
+    title: "Snake Game Arcade",
+    description:
+      "Classic Snake game built in Python with Pygame. Features smooth controls, score tracking, increasing speed levels, collision detection, and a retro arcade-style UI.",
+    tech: ["Python", "Pygame", "Game Dev", "OOP"],
+    category: "Backend",
+    featured: false,
+    gradient: "from-lime-500 via-green-500 to-emerald-600",
+    live: null,
+  },
+  {
+    title: "URL Changer React App",
+    description:
+      "Dynamic React application for URL manipulation and redirection with real-time preview, input validation, copy-to-clipboard, and a clean responsive UI.",
+    tech: ["React", "JavaScript", "React Router", "Tailwind CSS"],
+    category: "Frontend",
+    featured: false,
+    gradient: "from-sky-500 via-blue-500 to-indigo-600",
+    live: null,
+  },
+];
 
-//       {/* Project Title */}
-//       <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
-//         {project.title}
-//       </h3>
+const FILTERS = ["All", "AI & ML", "Frontend", "Client", "Backend"];
 
-//       {/* Project Description */}
-//       <p className={`text-sm mb-4 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-//         {project.description}
-//       </p>
+const CATEGORY_COLORS = {
+  "AI & ML": {
+    dark: "bg-violet-900/30 text-violet-300 border-violet-800/50",
+    light: "bg-violet-50 text-violet-700 border-violet-200",
+  },
+  Client: {
+    dark: "bg-rose-900/30 text-rose-300 border-rose-800/50",
+    light: "bg-rose-50 text-rose-700 border-rose-200",
+  },
+  Backend: {
+    dark: "bg-green-900/30 text-green-300 border-green-800/50",
+    light: "bg-green-50 text-green-700 border-green-200",
+  },
+  Frontend: {
+    dark: "bg-blue-900/30 text-blue-300 border-blue-800/50",
+    light: "bg-blue-50 text-blue-700 border-blue-200",
+  },
+  "Full Stack": {
+    dark: "bg-indigo-900/30 text-indigo-300 border-indigo-800/50",
+    light: "bg-indigo-50 text-indigo-700 border-indigo-200",
+  },
+};
 
-//       {/* Technologies */}
-//       <div className="flex flex-wrap gap-2 mb-4">
-//         {project.technologies.map((tech, techIndex) => (
-//           <span
-//             key={techIndex}
-//             className={`px-3 py-1 rounded-full text-xs font-medium ${isDarkMode ? 'bg-gray-700 text-gray-200' : 'bg-blue-100 text-blue-800'
-//               }`}
-//           >
-//             {tech}
-//           </span>
-//         ))}
-//       </div>
+function ProjectCard({ project, isDarkMode }) {
+  return (
+    <motion.div
+      className={`rounded-2xl overflow-hidden border h-full ${isDarkMode ? "bg-[#0f1629] border-[#1e2d4a]" : "bg-white border-gray-200"}`}
+      whileHover={{
+        y: -6,
+        boxShadow: isDarkMode
+          ? "0 24px 48px rgba(0,0,0,0.4)"
+          : "0 24px 48px rgba(0,0,0,0.10)",
+      }}
+      transition={{ duration: 0.22, ease: "easeOut" }}
+    >
+      {/* Banner */}
+      <div
+        className={`relative h-44 bg-gradient-to-br ${project.gradient} overflow-hidden`}
+      >
+        <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-white/10" />
+        <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-full bg-black/10" />
 
-//       {/* Links */}
-//       <div className="flex flex-wrap gap-3">
-//         <motion.a
-//           href={project.githubLink}
-//           target="_blank"
-//           rel="noopener noreferrer"
-//           className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${isDarkMode ? 'bg-gray-700 text-white hover:bg-gray-600' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-//             }`}
-//           whileHover={{ scale: 1.05 }}
-//           whileTap={{ scale: 0.95 }}
-//         >
-//           <FaGithub size={16} />
-//           GitHub
-//         </motion.a>
-//         <motion.a
-//           href={project.liveLink}
-//           target="_blank"
-//           rel="noopener noreferrer"
-//           className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${isDarkMode ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-blue-500 text-white hover:bg-blue-600'
-//             }`}
-//           whileHover={{ scale: 1.05 }}
-//           whileTap={{ scale: 0.95 }}
-//         >
-//           <FaExternalLinkAlt size={14} />
-//           LinkedIn
-//         </motion.a>
-//       </div>
-//     </motion.div>
-//   );
-// }
+        <div className="absolute top-4 left-4 flex items-center gap-2">
+          <span className="px-3 py-1 rounded-full bg-black/30 text-white text-xs font-semibold backdrop-blur-sm border border-white/20">
+            {project.category}
+          </span>
+          {project.featured && (
+            <span className="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-400/20 text-yellow-300 text-xs font-semibold backdrop-blur-sm border border-yellow-400/30">
+              <FiStar size={10} className="fill-yellow-300" />
+              Featured
+            </span>
+          )}
+        </div>
 
-// export default function Projects({ isDarkMode }) {
-//   const [showAllProjects, setShowAllProjects] = useState(false);
-//   const [isHiding, setIsHiding] = useState(false);
+        <div className="absolute bottom-4 left-4 right-4">
+          <h3 className="text-xl font-extrabold text-white drop-shadow-md leading-tight">
+            {project.title}
+          </h3>
+        </div>
+      </div>
 
-//   const displayedProjects = showAllProjects ? projects : projects.slice(0, 4);
+      {/* Body */}
+      <div className="p-5 space-y-4">
+        <p
+          className={`text-sm leading-relaxed ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+        >
+          {project.description}
+        </p>
 
-//   const handleHideProjects = () => {
-//     setIsHiding(true);
-//     // Wait for animation to complete before hiding
-//     setTimeout(() => {
-//       setShowAllProjects(false);
-//       setIsHiding(false);
-//     }, 300);
-//   };
+        <div className="flex flex-wrap gap-1.5">
+          {project.tech.map((t) => (
+            <span
+              key={t}
+              className={`px-2.5 py-1 rounded-full text-xs font-medium border ${isDarkMode ? "bg-gray-800/70 border-gray-700 text-gray-300" : "bg-gray-50 border-gray-200 text-gray-600"}`}
+            >
+              {t}
+            </span>
+          ))}
+        </div>
 
-//   return (
-//     <div id="projects" className={`min-h-screen border-gray-200 border-b-3 snap-start px-4 md:px-14 lg:px-36 py-12 flex flex-col transition-colors duration-300 ${isDarkMode ? 'bg-[#0f0f14] border-gray-800 text-white' : 'bg-[#F7F7F7] text-black'}`}>
-//       <div className="relative w-full">
-//         <motion.div
-//           initial={{ opacity: 0, y: 20 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.5 }}
-//           viewport={{ once: true }}
-//           className="flex justify-center mb-14"
-//         >
-//           <h1 className={`shiny-text sm:text-6xl md:text-7xl pb-2 font-semibold ${isDarkMode ? 'text-gray-200' : 'text-gray-800'}`}>My Projects</h1>
-//         </motion.div>
+        {project.live && (
+          <div className="pt-1">
+            <motion.a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition-colors duration-200"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <FiExternalLink size={13} />
+              View Live
+            </motion.a>
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
+}
 
-//         <motion.div
-//           initial={{ opacity: 0 }}
-//           whileInView={{ opacity: 1 }}
-//           transition={{ duration: 0.9 }}
-//           viewport={{ once: true }}
-//           className={`grid grid-cols-1 md:grid-cols-2 gap-x-7 gap-y-10 max-w-6xl mx-auto ${!showAllProjects ? 'mb-12' : ''}`}
-//         >
-//           {displayedProjects.map((project, index) => {
-//             const lastIndex = displayedProjects.length - 1;
-//             const isFirst = index === 0;
-//             const isSecond = index === 1;
-//             const isSecondLast = index === lastIndex - 1;
-//             const isLast = index === lastIndex;
-//             let initial, whileInView, delay = index * 0.08;
-//             if (isFirst || isSecondLast) {
-//               initial = { opacity: 0, x: -60 };
-//               whileInView = { opacity: 1, x: 0 };
-//               delay = 0;
-//             } else if (isSecond || isLast) {
-//               initial = { opacity: 0, x: 60 };
-//               whileInView = { opacity: 1, x: 0 };
-//               delay = 0;
-//             } else {
-//               initial = { opacity: 0, y: 40 };
-//               whileInView = { opacity: 1, y: 0 };
-//             }
-//             return (
-//               <motion.div
-//                 key={index}
-//                 initial={initial}
-//                 whileInView={whileInView}
-//                 transition={{
-//                   duration: 0.5,
-//                   delay,
-//                   ease: 'easeInOut'
-//                 }}
-//                 viewport={{ once: true }}
-//               >
-//                 <ProjectCard project={project} isDarkMode={isDarkMode} />
-//               </motion.div>
-//             );
-//           })}
-//         </motion.div>
+export default function Projects({ isDarkMode }) {
+  const [activeFilter, setActiveFilter] = useState("All");
 
-//         {/* Show More Projects Button */}
-//         {!showAllProjects && (
-//           <>
-//             <div className="mt-8" />
-//             <motion.div
-//               initial={{ opacity: 0, y: 20 }}
-//               whileInView={{ opacity: 1, y: 0 }}
-//               transition={{ duration: 0.5, delay: 0.4 }}
-//               viewport={{ once: true }}
-//               className="flex justify-center"
-//             >
-//               <motion.button
-//                 onClick={() => setShowAllProjects(true)}
-//                 className={`px-8 py-4 mt-8 cursor-pointer rounded-2xl font-medium transition-colors duration-200 ${isDarkMode
-//                   ? 'bg-blue-600 text-white hover:bg-blue-700'
-//                   : 'bg-blue-500 text-white hover:bg-blue-600'
-//                   }`}
-//                 whileHover={{ scale: 1.05 }}
-//                 whileTap={{ scale: 0.95 }}
-//               >
-//                 Show More Projects
-//               </motion.button>
-//             </motion.div>
-//           </>
-//         )}
+  const filtered =
+    activeFilter === "All"
+      ? PROJECTS
+      : PROJECTS.filter((p) => p.category === activeFilter);
 
-//         {/* Hide Projects Button */}
-//         {showAllProjects && (
-//           <motion.div
-//             initial={{ opacity: 0, y: 20 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.5, delay: 0.4 }}
-//             viewport={{ once: true }}
-//             className="flex justify-center mt-12"
-//           >
-//             <motion.button
-//               onClick={handleHideProjects}
-//               disabled={isHiding}
-//               className={`px-8 py-4 cursor-pointer rounded-2xl font-medium transition-colors duration-200 ${isDarkMode
-//                 ? 'bg-gray-700 text-white hover:bg-gray-600'
-//                 : 'bg-gray-500 text-white hover:bg-gray-600'
-//                 } ${isHiding ? 'opacity-50 cursor-not-allowed' : ''}`}
-//               whileHover={{ scale: isHiding ? 1 : 1.05 }}
-//               whileTap={{ scale: isHiding ? 1 : 0.95 }}
-//             >
-//               {isHiding ? 'Hiding...' : 'Hide Projects'}
-//             </motion.button>
-//           </motion.div>
-//         )}
-//       </div>
-//     </div>
-//   );
-// } 
+  return (
+    <section
+      id="projects"
+      className={`relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#080b14]" : "bg-[#f8fafc]"}`}
+    >
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div
+          className={`absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full blur-[130px] ${isDarkMode ? "bg-blue-900/15" : "bg-blue-100/60"}`}
+        />
+        <div
+          className={`absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[100px] ${isDarkMode ? "bg-purple-900/15" : "bg-purple-100/50"}`}
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <span
+            className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-blue-900/30 text-blue-400 border border-blue-800/40" : "bg-blue-50 text-blue-600 border border-blue-200"}`}
+          >
+            Portfolio
+          </span>
+          <h2
+            className={`text-4xl sm:text-5xl font-extrabold tracking-tight ${isDarkMode ? "text-white" : "text-gray-900"}`}
+          >
+            My <span className="shiny-text">Projects</span>
+          </h2>
+          <p
+            className={`mt-4 text-base max-w-xl mx-auto ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}
+          >
+            Real-world AI systems, RAG pipelines, and client applications built
+            in production environments.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap justify-center gap-2 mb-10"
+        >
+          {FILTERS.map((f) => (
+            <button
+              key={f}
+              onClick={() => setActiveFilter(f)}
+              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-colors duration-200 ${
+                activeFilter === f
+                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white border-transparent shadow-lg shadow-blue-500/20"
+                  : isDarkMode
+                    ? "bg-transparent text-gray-400 border-gray-700 hover:border-gray-500 hover:text-gray-200"
+                    : "bg-white text-gray-600 border-gray-300 hover:border-gray-400"
+              }`}
+            >
+              {f}
+            </button>
+          ))}
+        </motion.div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeFilter}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {filtered.map((project, i) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: i * 0.06, ease: "easeOut" }}
+              >
+                <ProjectCard project={project} isDarkMode={isDarkMode} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+}

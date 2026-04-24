@@ -1,153 +1,142 @@
 @import "tailwindcss";
-@tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  font-family: "Outfit", sans-serif;
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Smooth colour transitions on theme toggle only  excludes transform/opacity
+   so Framer Motion animations are never blocked or delayed. */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
-* {
-
-    font-family: Outfit;
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+  border-radius: 10px;
 }
 
+/* Animated gradient text */
 .shiny-text {
-    background: linear-gradient(90deg, #3b82f6, #603fac, #ec4899, #3b82f6);
-    background-size: 300% auto;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: shine 3s linear infinite;
-    display: inline-block;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+  background-size: 300% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 4s linear infinite;
+  display: inline-block;
 }
 
 @keyframes shine {
-    to {
-        background-position: 300% center;
-    }
+  to {
+    background-position: 300% center;
+  }
 }
 
-@keyframes blob1 {
-
-    0%,
-    100% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    25% {
-        transform: translate(30px, -30px) scale(1.1);
-    }
-
-    50% {
-        transform: translate(0, 20px) scale(0.9);
-    }
-
-    75% {
-        transform: translate(-30px, -15px) scale(1.05);
-    }
+/* Static gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-@keyframes blob2 {
-
-    0%,
-    100% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    25% {
-        transform: translate(-20px, 25px) scale(1.05);
-    }
-
-    50% {
-        transform: translate(15px, -15px) scale(0.95);
-    }
-
-    75% {
-        transform: translate(25px, 20px) scale(1.1);
-    }
+/* Dot grid backgrounds */
+.dot-grid {
+  background-image: radial-gradient(
+    circle,
+    rgba(148, 163, 184, 0.25) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
 }
 
-@keyframes float-dot {
-
-    0%,
-    100% {
-        transform: translate(0, 0);
-    }
-
-    50% {
-        transform: translate(15px, -20px);
-    }
+.dot-grid-dark {
+  background-image: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
 }
 
-.animate-blob1 {
-    animation: blob1 15s infinite ease-in-out;
+/* Floating animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-.animate-blob2 {
-    animation: blob2 18s infinite ease-in-out;
+@keyframes float-delayed {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
 }
 
-.animate-float-dot {
-    animation: float-dot 8s infinite ease-in-out;
+.animate-float {
+  animation: float 3.5s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float-delayed 4s ease-in-out infinite 0.7s;
 }
 
-.shiny-text {
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
-    background-size: 200% auto;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: shine 3s linear infinite;
+/* Gradient border ring */
+.ring-gradient {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  padding: 3px;
+  border-radius: 50%;
 }
 
-@keyframes shine {
-    to {
-        background-position: 200% center;
-    }
-}
-
-/* Zebra stripes animation */
-@keyframes zebra-move {
+/* Progress bar shimmer */
+@keyframes shimmer {
   0% {
-    background-position: 0 0;
+    transform: translateX(-100%);
   }
   100% {
-    background-position: 120px 120px;
+    transform: translateX(200%);
   }
 }
 
-/* Zebra stripe background class */
-.zebra-bg {
-  background: repeating-linear-gradient(
-    135deg,
-    #777777 0px,
-    #828282 40px,
-    #8b8b8b 40px,
-    #afafaf 80px
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
   );
-  animation: zebra-move 12s linear infinite;
-  background-size: 120px 120px;
-  opacity: 0.10; /* Keep it subtle */
+  animation: shimmer 2s infinite;
 }

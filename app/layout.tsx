@@ -11,7 +11,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Asfand's Portfolio",
+  title: "Asfand Yar | Gen AI Backend Developer",
+  description: "Gen AI Backend Developer specializing in LLMs, RAG pipelines, Prompt Engineering, and Python backend systems.",
   icons: {
     icon: "/icon2.png",
   },

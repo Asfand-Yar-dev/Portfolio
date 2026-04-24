@@ -1,476 +1,195 @@
-'use client'
+"use client"
 
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Code, Palette, Zap, Users, MessageSquare, Lightbulb, Clock, Heart, GitBranch, ShoppingCart, Cpu, Database, GitCommit, Terminal, Server, Layers, Type, Globe, Mail, Shield, Cloud, Wifi, Battery, Settings, Monitor, Camera, Headphones, Figma } from "lucide-react";
-import Particles from "react-particles";
-import { loadFull } from "tsparticles";
+import { useState, useRef, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 
-export default function SkillsSection({ isDarkMode }) {
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
+const TABS = ["AI & ML", "Backend", "Frontend", "Database & Cloud", "Tools"]
+
+const SKILLS = {
+  "AI & ML": [
+    { name: "Python",              level: 85, color: "from-blue-400 to-yellow-500"    },
+    { name: "LLM Integration",     level: 85, color: "from-indigo-400 to-blue-600"    },
+    { name: "RAG Pipelines",       level: 82, color: "from-cyan-400 to-teal-600"      },
+    { name: "OpenAI API",          level: 85, color: "from-green-400 to-emerald-600"  },
+    { name: "LangChain",           level: 78, color: "from-yellow-400 to-orange-500"  },
+    { name: "Prompt Engineering",  level: 88, color: "from-violet-400 to-purple-600"  },
+    { name: "Data Processing",     level: 80, color: "from-pink-400 to-rose-600"      },
+    { name: "FastAPI",             level: 75, color: "from-teal-400 to-cyan-600"      },
+  ],
+  "Backend": [
+    { name: "Python",           level: 85, color: "from-blue-400 to-yellow-500"      },
+    { name: "Node.js",          level: 80, color: "from-green-400 to-green-600"      },
+    { name: "Express.js",       level: 80, color: "from-gray-400 to-gray-600"        },
+    { name: "FastAPI",          level: 75, color: "from-teal-400 to-cyan-600"        },
+    { name: "REST APIs",        level: 88, color: "from-blue-400 to-indigo-600"      },
+    { name: "Authentication",   level: 82, color: "from-purple-400 to-violet-600"    },
+    { name: "WebSockets",       level: 65, color: "from-yellow-400 to-orange-500"    },
+  ],
+  "Frontend": [
+    { name: "React.js",         level: 86, color: "from-cyan-400 to-blue-500"        },
+    { name: "Next.js",          level: 82, color: "from-gray-400 to-gray-600"        },
+    { name: "TypeScript",       level: 74, color: "from-blue-400 to-blue-600"        },
+    { name: "JavaScript ES6+",  level: 88, color: "from-yellow-400 to-yellow-500"   },
+    { name: "Tailwind CSS",     level: 90, color: "from-teal-400 to-cyan-600"        },
+    { name: "HTML & CSS",       level: 92, color: "from-orange-400 to-orange-600"   },
+    { name: "Framer Motion",    level: 78, color: "from-pink-400 to-purple-500"      },
+  ],
+  "Database & Cloud": [
+    { name: "MongoDB",          level: 78, color: "from-green-400 to-green-600"      },
+    { name: "PostgreSQL",       level: 72, color: "from-indigo-400 to-blue-600"      },
+    { name: "MySQL",            level: 82, color: "from-blue-400 to-blue-600"        },
+    { name: "Vector DBs",       level: 70, color: "from-violet-400 to-purple-600"    },
+    { name: "Redis",            level: 60, color: "from-red-400 to-orange-500"       },
+    { name: "Firebase",         level: 72, color: "from-yellow-400 to-orange-500"    },
+  ],
+  "Tools": [
+    { name: "Git & GitHub",     level: 88, color: "from-gray-400 to-gray-700"        },
+    { name: "Docker",           level: 65, color: "from-blue-400 to-cyan-500"        },
+    { name: "Postman",          level: 80, color: "from-orange-400 to-orange-600"    },
+    { name: "VS Code",          level: 94, color: "from-blue-400 to-blue-600"        },
+    { name: "Figma",            level: 72, color: "from-purple-400 to-pink-500"      },
+    { name: "Jupyter Notebook", level: 80, color: "from-orange-400 to-amber-600"     },
+  ],
+}
+
+function SkillBar({ skill, delay, isDarkMode }) {
+  const [animated, setAnimated] = useState(false)
 
   return (
-    <section id="skills" className={`lg:h-[100vh] min-h-screen relative py-16 px-4 sm:px-6 lg:px-8 ${isDarkMode ? 'bg-[#0f0f14]' : 'bg-[#F7F7F7]'} w-full overflow-hidden transition-colors duration-300`}>
-      {/* Particle Background */}
-      <div className="absolute inset-0 z-0">
-        <Particles
-          id="tsparticles"
-          init={particlesInit}
-          options={{
-            fpsLimit: 60,
-            interactivity: {
-              events: {
-                onClick: {
-                  enable: true,
-                  mode: "push",
-                },
-                onHover: {
-                  enable: true,
-                  mode: "repulse",
-                },
-              },
-              modes: {
-                push: {
-                  quantity: 4,
-                },
-                repulse: {
-                  distance: 100,
-                  duration: 0.4,
-                },
-              },
-            },
-            particles: {
-              color: {
-                value: isDarkMode ? "#a78bfa" : "#7c3aed",
-              },
-              links: {
-                color: isDarkMode ? "#a78bfa" : "#7c3aed",
-                distance: 150,
-                enable: true,
-                opacity: 0.3,
-                width: 1,
-              },
-              collisions: {
-                enable: true,
-              },
-              move: {
-                direction: "none",
-                enable: true,
-                outModes: {
-                  default: "bounce",
-                },
-                random: false,
-                speed: 1,
-                straight: false,
-              },
-              number: {
-                density: {
-                  enable: true,
-                  area: 800,
-                },
-                value: 60,
-              },
-              opacity: {
-                value: 0.5,
-              },
-              shape: {
-                type: "circle",
-              },
-              size: {
-                value: { min: 1, max: 3 },
-              },
-            },
-            detectRetina: true,
-          }}
-        />
+    <motion.div
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.4, delay }}
+      className="space-y-2"
+      onViewportEnter={() => setAnimated(true)}
+      viewport={{ once: true }}
+    >
+      <div className="flex justify-between items-center">
+        <span className={`text-sm font-semibold ${isDarkMode ? "text-gray-200" : "text-gray-800"}`}>
+          {skill.name}
+        </span>
+        <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${isDarkMode ? "bg-gray-800 text-gray-300" : "bg-gray-100 text-gray-600"}`}>
+          {skill.level}%
+        </span>
+      </div>
+      <div className={`h-2 w-full rounded-full overflow-hidden ${isDarkMode ? "bg-gray-800" : "bg-gray-200"}`}>
+        <motion.div
+          className={`h-full rounded-full bg-gradient-to-r ${skill.color} relative overflow-hidden`}
+          initial={{ width: 0 }}
+          animate={{ width: animated ? `${skill.level}%` : 0 }}
+          transition={{ duration: 1.1, delay: delay + 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer" />
+        </motion.div>
+      </div>
+    </motion.div>
+  )
+}
+
+export default function Skills({ isDarkMode }) {
+  const [activeTab, setActiveTab] = useState("AI & ML")
+  const tabRefs = useRef([])
+  const [indicator, setIndicator] = useState({ width: 0, left: 0 })
+
+  useEffect(() => {
+    const idx = TABS.indexOf(activeTab)
+    const el = tabRefs.current[idx]
+    if (el) setIndicator({ width: el.offsetWidth, left: el.offsetLeft })
+  }, [activeTab])
+
+  const card = isDarkMode
+    ? "bg-[#0f1629] border border-[#1e2d4a]"
+    : "bg-white border border-gray-200 shadow-sm"
+
+  return (
+    <section
+      id="skills"
+      className={`relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#0a0d18]" : "bg-white"}`}
+    >
+      {/* Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className={`absolute top-0 left-0 w-[600px] h-[600px] rounded-full blur-[150px] ${isDarkMode ? "bg-blue-900/10" : "bg-blue-50/80"}`} />
+        <div className={`absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full blur-[120px] ${isDarkMode ? "bg-purple-900/10" : "bg-purple-50/80"}`} />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.h2
-          className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12 md:mb-16 dark:text-white"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }} viewport={{ once: true }}
+          className="text-center mb-14"
         >
-          <h1
-            className={`shiny-text text-5xl sm:text-6xl md:text-6xl font-bold leading-tight mb-6 ${isDarkMode ? 'text-gray-100' : 'text-gray-900'
-              }`}
-          >
-            MY SKILLS
-          </h1>
-        </motion.h2>
+          <span className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-blue-900/30 text-blue-400 border border-blue-800/40" : "bg-blue-50 text-blue-600 border border-blue-200"}`}>
+            Expertise
+          </span>
+          <h2 className={`text-4xl sm:text-5xl font-extrabold tracking-tight ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+            My <span className="shiny-text">Skills</span>
+          </h2>
+          <p className={`mt-4 text-base max-w-xl mx-auto ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>
+            A comprehensive toolkit built through real-world projects and continuous learning.
+          </p>
+        </motion.div>
 
-        <TabSwitcher isDarkMode={isDarkMode} />
-      </div>
-    </section>
-  );
-}
+        {/* Tab switcher */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }} viewport={{ once: true }}
+          className="flex justify-center mb-10"
+        >
+          <div className={`relative flex p-1.5 rounded-2xl gap-0 overflow-hidden ${isDarkMode ? "bg-[#0f1629] border border-[#1e2d4a]" : "bg-gray-100 border border-gray-200"}`}>
+            <motion.div
+              className="absolute top-1.5 bottom-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg"
+              animate={{ left: indicator.left, width: indicator.width }}
+              transition={{ type: "spring", stiffness: 350, damping: 28 }}
+            />
+            {TABS.map((tab, i) => (
+              <button
+                key={tab}
+                ref={(el) => (tabRefs.current[i] = el)}
+                onClick={() => setActiveTab(tab)}
+                className={`relative z-10 px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-colors duration-200 whitespace-nowrap ${activeTab === tab ? "text-white" : isDarkMode ? "text-gray-400 hover:text-gray-200" : "text-gray-500 hover:text-gray-800"}`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+        </motion.div>
 
-function TabSwitcher({ isDarkMode }) {
-  const [activeTab, setActiveTab] = useState(0);
-  const tabs = ["Technical", "Soft", "Tools"];
-  const tabRefs = useRef([]);
-  const [indicator, setIndicator] = useState({ width: 0, left: 0 });
-
-  useEffect(() => {
-    if (tabRefs.current[activeTab]) {
-      const { offsetWidth, offsetLeft } = tabRefs.current[activeTab];
-      setIndicator({ width: offsetWidth, left: offsetLeft });
-    }
-  }, [activeTab]);
-
-  return (
-    <div className="w-full">
-      {/* Tab Navigation */}
-      <div className="relative flex justify-center mb-8 sm:mb-12">
-        <div className={`flex ${isDarkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-full p-1 relative`}>
-          <motion.div
-            className={`absolute top-1 h-[calc(100%-8px)] rounded-full bg-gradient-to-r from-purple-500 to-blue-600 z-0`}
-            initial={false}
-            animate={{
-              left: indicator.left,
-              width: indicator.width,
-            }}
-            transition={{ type: "spring", damping: 20, stiffness: 300 }}
-          />
-
-          {tabs.map((tab, index) => (
-            <button
-              key={tab}
-              ref={(el) => (tabRefs.current[index] = el)}
-              onClick={() => setActiveTab(index)}
-              className={`relative z-10 px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200 ${activeTab === index
-                ? 'text-white'
-                : isDarkMode
-                  ? 'text-gray-300 hover:text-white'
-                  : 'text-gray-600 hover:text-gray-900'
-                }`}
-            >
-              {tab} Skills
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Tab Content */}
-      <div className="min-h-[500px]">
+        {/* Skills grid */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.3 }}
+            className={`rounded-3xl p-6 sm:p-8 ${card}`}
           >
-            {activeTab === 0 && <TechnicalSkills isDarkMode={isDarkMode} />}
-            {activeTab === 1 && <SoftSkills isDarkMode={isDarkMode} />}
-            {activeTab === 2 && <ToolsSkills isDarkMode={isDarkMode} />}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {SKILLS[activeTab].map((skill, i) => (
+                <SkillBar key={skill.name} skill={skill} delay={i * 0.05} isDarkMode={isDarkMode} />
+              ))}
+            </div>
           </motion.div>
         </AnimatePresence>
+
+        {/* Bottom summary pills */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }} viewport={{ once: true }}
+          className="mt-12 flex flex-wrap justify-center gap-4"
+        >
+          {[
+            { label: "AI & LLM Expert",      color: isDarkMode ? "text-violet-400 bg-violet-900/20 border-violet-800/40" : "text-violet-700 bg-violet-50 border-violet-200" },
+            { label: "Prompt Engineer",      color: isDarkMode ? "text-cyan-400 bg-cyan-900/20 border-cyan-800/40"     : "text-cyan-700 bg-cyan-50 border-cyan-200"     },
+            { label: "Frontend Proficient",  color: isDarkMode ? "text-blue-400 bg-blue-900/20 border-blue-800/40"     : "text-blue-700 bg-blue-50 border-blue-200"     },
+            { label: "Backend Capable",      color: isDarkMode ? "text-green-400 bg-green-900/20 border-green-800/40"  : "text-green-700 bg-green-50 border-green-200"  },
+            { label: "Database Proficient",  color: isDarkMode ? "text-orange-400 bg-orange-900/20 border-orange-800/40": "text-orange-700 bg-orange-50 border-orange-200" },
+          ].map(({ label, color }) => (
+            <span key={label} className={`px-4 py-2 rounded-full text-xs font-semibold border ${color}`}>{label}</span>
+          ))}
+        </motion.div>
       </div>
-    </div>
-  );
-}
-
-function TechnicalSkills({ isDarkMode }) {
-  const categories = [
-    {
-      icon: Code,
-      title: "Frontend",
-      description: "Building responsive and interactive user interfaces",
-      skills: [
-        { name: "React", level: 90, color: "from-blue-400 to-blue-600", icon: Layers },
-        { name: "Next.js", level: 85, color: "from-gray-400 to-gray-600", icon: Globe },
-        { name: "JavaScript", level: 95, color: "from-yellow-400 to-yellow-600", icon: Terminal },
-        { name: "CSS/Tailwind", level: 95, color: "from-teal-400 to-blue-600", icon: Palette }
-      ]
-    },
-    {
-      icon: ShoppingCart,
-      title: "E-Commerce",
-      description: "Building online stores and shopping experiences",
-      skills: [
-        { name: "Shopify", level: 85, color: "from-green-400 to-green-600", icon: ShoppingCart },
-        { name: "WordPress", level: 80, color: "from-blue-400 to-blue-700", icon: Type },
-        { name: "WooCommerce", level: 75, color: "from-purple-400 to-purple-600", icon: Database }
-      ]
-    },
-    {
-      icon: Palette,
-      title: "Design",
-      description: "Creating beautiful and functional designs",
-      skills: [
-        { name: "Figma", level: 85, color: "from-purple-400 to-pink-600", icon: Figma },
-        { name: "UI/UX", level: 80, color: "from-pink-400 to-red-600", icon: Figma },
-        { name: "Animation", level: 75, color: "from-indigo-400 to-purple-600", icon: Zap }
-      ]
-    }
-  ];
-
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-      {categories.map((category, index) => (
-        <motion.div
-          key={category.title}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: index * 0.1 }}
-          viewport={{ once: true, margin: "-50px" }}
-          className={`rounded-xl p-6 ${isDarkMode ? 'bg-gray-900/80' : 'bg-white'} shadow-sm backdrop-blur-sm border ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}
-        >
-          <div className="flex items-start gap-4 mb-4">
-            <div className={`p-2 rounded-lg ${isDarkMode ? 'bg-purple-900/50' : 'bg-purple-100'}`}>
-              <category.icon className="text-purple-600 dark:text-purple-400" size={24} />
-            </div>
-            <div>
-              <h3 className={`text-lg font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                {category.title}
-              </h3>
-              <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-                {category.description}
-              </p>
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            {category.skills.map((skill) => (
-              <div key={skill.name}>
-                <div className="flex justify-between items-center mb-1">
-                  <div className="flex items-center gap-2">
-                    {skill.icon && <skill.icon className={`w-4 h-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`} />}
-                    <span className={isDarkMode ? 'text-gray-200' : 'text-gray-800'}>{skill.name}</span>
-                  </div>
-                  <span className={isDarkMode ? 'text-gray-400' : 'text-gray-600'}>{skill.level}%</span>
-                </div>
-                <div className={`w-full h-2 rounded-full ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'} overflow-hidden`}>
-                  <motion.div
-                    className={`h-full rounded-full bg-gradient-to-r ${skill.color} relative`}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.3 }}
-                  >
-                    <motion.div
-                      className="absolute top-0 right-0 h-full w-1 bg-white opacity-70"
-                      initial={{ opacity: 0 }}
-                      animate={{
-                        opacity: [0, 0.7, 0],
-                        x: [-10, 0, 10]
-                      }}
-                      transition={{
-                        duration: 1.5,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                    />
-                  </motion.div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  );
-}
-
-function SoftSkills({ isDarkMode }) {
-  const skills = [
-    {
-      name: "Communication",
-      level: 90,
-      icon: MessageSquare,
-      description: "Clear and effective in team settings",
-      color: "from-blue-400 to-blue-600"
-    },
-    {
-      name: "Problem Solving",
-      level: 85,
-      icon: Lightbulb,
-      description: "Analytical and creative solutions",
-      color: "from-yellow-400 to-yellow-600"
-    },
-    {
-      name: "Teamwork",
-      level: 95,
-      icon: Users,
-      description: "Collaborative and supportive",
-      color: "from-green-400 to-green-600"
-    },
-    {
-      name: "Adaptability",
-      level: 90,
-      icon: Zap,
-      description: "Quick to learn new technologies",
-      color: "from-purple-400 to-purple-600"
-    },
-    {
-      name: "Time Management",
-      level: 80,
-      icon: Clock,
-      description: "Efficient and deadline-oriented",
-      color: "from-orange-400 to-orange-600"
-    },
-    {
-      name: "Empathy",
-      level: 85,
-      icon: Heart,
-      description: "Understanding user needs",
-      color: "from-pink-400 to-pink-600"
-    },
-  ];
-
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-      {skills.map((skill, index) => (
-        <motion.div
-          key={skill.name}
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3, delay: index * 0.05 }}
-          viewport={{ once: true }}
-          className={`rounded-xl p-5 ${isDarkMode ? 'bg-gray-900/80' : 'bg-white'} shadow-sm backdrop-blur-sm border ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}
-        >
-          <div className="flex items-center gap-4 mb-4">
-            <div className={`p-3 rounded-lg bg-gradient-to-r ${skill.color}`}>
-              <skill.icon className="text-white" size={20} />
-            </div>
-            <div>
-              <h4 className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                {skill.name}
-              </h4>
-              <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                {skill.description}
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className={`flex-1 h-2 rounded-full ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-              <motion.div
-                className={`h-full rounded-full bg-gradient-to-r ${skill.color} relative`}
-                initial={{ width: 0 }}
-                whileInView={{ width: `${skill.level}%` }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.3 }}
-              >
-                <motion.div
-                  className="absolute top-0 right-0 h-full w-1 bg-white opacity-70"
-                  initial={{ opacity: 0 }}
-                  animate={{
-                    opacity: [0, 0.7, 0],
-                    x: [-10, 0, 10]
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-              </motion.div>
-            </div>
-            <span className={`text-sm font-medium ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              {skill.level}%
-            </span>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  );
-}
-
-function ToolsSkills({ isDarkMode }) {
-  const toolCategories = [
-    {
-      name: "Development",
-      items: [
-        { name: "VS Code", icon: Code },
-        { name: "Git", icon: GitCommit },
-        { name: "GitHub", icon: GitBranch },
-        { name: "Shopify CLI", icon: Terminal },
-        { name: "Postman", icon: Mail }
-      ],
-      icon: Code,
-      color: "from-blue-400 to-blue-600"
-    },
-    {
-      name: "Design",
-      items: [
-        { name: "Figma", icon: Figma },
-        { name: "Photoshop", icon: Camera },
-        { name: "Illustrator", icon: Palette },
-        { name: "Framer", icon: Figma }
-      ],
-      icon: Palette,
-      color: "from-purple-400 to-purple-600"
-    },
-    {
-      name: "Collaboration",
-      items: [
-        { name: "Slack", icon: MessageSquare },
-        { name: "Trello", icon: Layers },
-        { name: "Notion", icon: Type },
-        { name: "Jira", icon: Shield }
-      ],
-      icon: GitBranch,
-      color: "from-green-400 to-green-600"
-    },
-    {
-      name: "Productivity",
-      items: [
-        { name: "Raycast", icon: Zap },
-        { name: "Alfred", icon: Terminal },
-        { name: "Obsidian", icon: Database },
-        { name: "Shopify Theme Kit", icon: ShoppingCart }
-      ],
-      icon: Zap,
-      color: "from-yellow-400 to-yellow-600"
-    }
-  ];
-
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-      {toolCategories.map((category, index) => (
-        <motion.div
-          key={category.name}
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3, delay: index * 0.1 }}
-          viewport={{ once: true }}
-          className={`rounded-xl p-5 ${isDarkMode ? 'bg-gray-900/80' : 'bg-white'} shadow-sm backdrop-blur-sm border ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <div className={`p-2 rounded-lg bg-gradient-to-r ${category.color}`}>
-              <category.icon className="text-white" size={20} />
-            </div>
-            <h3 className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              {category.name}
-            </h3>
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            {category.items.map((tool, i) => (
-              <motion.div
-                key={tool.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: i * 0.05 }}
-                viewport={{ once: true }}
-                className={`flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg ${isDarkMode
-                  ? 'bg-gray-800 text-gray-200'
-                  : 'bg-gray-100 text-gray-800'
-                  }`}
-              >
-                {tool.icon && <tool.icon className="w-4 h-4" />}
-                {tool.name}
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  );
+    </section>
+  )
 }
