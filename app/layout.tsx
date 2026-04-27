@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: "Asfand Yar | Gen AI Backend Developer",
   description: "Gen AI Backend Developer specializing in LLMs, RAG pipelines, Prompt Engineering, and Python backend systems.",
   icons: {
-    icon: "/icon2.png",
+    icon: "/logo.svg",
   },
 };
 
@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Preload critical images */}
-        <link rel="preload" as="image" href="/icon2.png" />
+        <link rel="preload" as="image" href="/logo.svg" />
       </head>
       <body className={`${outfit.className} antialiased`}>
         {children}
