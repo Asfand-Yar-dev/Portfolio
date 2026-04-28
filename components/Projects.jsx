@@ -53,7 +53,7 @@ const PROJECTS = [
     description:
       "Client website for a healthcare practice in Virginia. Clean, accessible design with appointment booking, service listings, and mobile-first layout.",
     tech: ["Web Development", "Responsive Design", "SEO", "UI/UX"],
-    category: "Client",
+    category: ["Client", "Frontend"],
     featured: false,
     gradient: "from-rose-500 via-pink-600 to-fuchsia-700",
     live: "https://healinghandsofvirginia.com",
@@ -63,7 +63,7 @@ const PROJECTS = [
     description:
       "AI-powered web application for clients. Features intelligent automation, a clean user interface, and seamless API integrations for real-world AI use cases.",
     tech: ["AI Integration", "Web App", "API", "UI/UX"],
-    category: "Client",
+    category: ["Client", "Frontend"],
     featured: false,
     gradient: "from-blue-500 via-indigo-600 to-violet-700",
     live: "https://my1ai.app",
@@ -155,9 +155,11 @@ function ProjectCard({ project, isDarkMode }) {
         <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-full bg-black/10" />
 
         <div className="absolute top-4 left-4 flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-black/30 text-white text-xs font-semibold backdrop-blur-sm border border-white/20">
-            {project.category}
-          </span>
+          {(Array.isArray(project.category) ? project.category : [project.category]).map((cat) => (
+            <span key={cat} className="px-3 py-1 rounded-full bg-black/30 text-white text-xs font-semibold backdrop-blur-sm border border-white/20">
+              {cat}
+            </span>
+          ))}
           {project.featured && (
             <span className="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-400/20 text-yellow-300 text-xs font-semibold backdrop-blur-sm border border-yellow-400/30">
               <FiStar size={10} className="fill-yellow-300" />
@@ -218,7 +220,11 @@ export default function Projects({ isDarkMode }) {
   const filtered =
     activeFilter === "All"
       ? PROJECTS
-      : PROJECTS.filter((p) => p.category === activeFilter);
+      : PROJECTS.filter((p) =>
+          Array.isArray(p.category)
+            ? p.category.includes(activeFilter)
+            : p.category === activeFilter
+        );
 
   return (
     <section
