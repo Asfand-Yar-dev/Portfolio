@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: "Asfand Yar | Gen AI Backend Developer",
   description: "Portfolio of Asfand Yar, a Gen AI Backend Developer specializing in LLMs, RAG pipelines, Prompt Engineering, and Python backend systems.",
   icons: {
-    icon: "/logo.svg",
+    icon: "/favicon.png",
   },
 };
 
