@@ -17,7 +17,7 @@ const SectionLoader = () => (
       {[0, 1, 2].map((i) => (
         <div
           key={i}
-          className="w-2 h-2 rounded-full bg-blue-500 animate-bounce"
+          className="w-2 h-2 rounded-full bg-zinc-400 animate-bounce"
           style={{ animationDelay: `${i * 0.15}s` }}
         />
       ))}
@@ -38,7 +38,7 @@ export default function Page() {
   };
 
   return (
-    <div className={`${isDarkMode ? "bg-[#0c0c0e]" : "bg-[#faf9f7]"}`}>
+    <div className={`${isDarkMode ? "bg-[#09090b]" : "bg-[#fafafa]"}`}>
       <Hero
         isDarkMode={isDarkMode}
         toggleTheme={toggleTheme}
