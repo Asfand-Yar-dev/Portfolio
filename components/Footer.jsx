@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { FaGithub, FaLinkedinIn } from "react-icons/fa"
-import { FiArrowUp, FiHeart } from "react-icons/fi"
+import { FiArrowUp } from "react-icons/fi"
 
 const NAV_LINKS = [
   { id: "about",      label: "About"      },
@@ -21,38 +21,24 @@ export default function Footer({ isDarkMode, scrollToSection }) {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" })
 
   return (
-    <footer className={`relative overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#0c0c0e] border-t border-[#2d2d33]/60" : "bg-white border-t border-gray-200"}`}>
-      {/* Top gradient accent */}
-      <div className={`h-px w-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent`} />
-
+    <footer className={`relative overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#09090b] border-t border-zinc-800" : "bg-white border-t border-zinc-200"}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-8 sm:py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
 
           {/* Brand */}
           <div>
-            <div className="text-2xl font-extrabold shiny-text mb-3">Asfand Yar</div>
-            <p className={`text-sm leading-relaxed mb-5 max-w-xs ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>
-              Full Stack Developer building modern, performant web applications with React, Next.js, Node.js, and beyond.
-            </p>
-            <div className="flex gap-2.5">
-              {SOCIAL.map(({ Icon, url, label }) => (
-                <motion.a
-                  key={label}
-                  href={url} target="_blank" rel="noopener noreferrer"
-                  aria-label={label}
-                  className={`p-2.5 rounded-xl border transition-all duration-200 ${isDarkMode ? "border-[#2d2d33] text-gray-400 hover:bg-[#1c1c1e] hover:text-white hover:border-amber-800/50" : "border-gray-200 text-gray-500 hover:bg-gray-50 hover:text-gray-800"}`}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.94 }}
-                >
-                  <Icon size={16} />
-                </motion.a>
-              ))}
+            <div className="text-2xl font-extrabold shiny-text mb-3">
+              Asfand Yar
             </div>
+            <p className={`text-sm leading-relaxed mb-5 max-w-xs ${isDarkMode ? "text-zinc-500" : "text-zinc-500"}`}>
+              Gen AI Backend Developer building LLM-powered systems, RAG pipelines, and scalable AI APIs.
+            </p>
+           
           </div>
 
           {/* Quick links */}
           <div>
-            <h3 className={`text-sm font-bold uppercase tracking-wider mb-5 ${isDarkMode ? "text-gray-300" : "text-gray-700"}`}>
+            <h3 className={`text-sm font-bold uppercase tracking-wider mb-5 ${isDarkMode ? "text-zinc-400" : "text-zinc-700"}`}>
               Navigation
             </h3>
             <ul className="space-y-3">
@@ -60,7 +46,7 @@ export default function Footer({ isDarkMode, scrollToSection }) {
                 <li key={link.id}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className={`text-sm transition-colors duration-200 hover:text-amber-500 ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}
+                    className={`text-sm transition-colors duration-200 ${isDarkMode ? "text-zinc-500 hover:text-emerald-400" : "text-zinc-500 hover:text-emerald-600"}`}
                   >
                     {link.label}
                   </button>
@@ -71,24 +57,24 @@ export default function Footer({ isDarkMode, scrollToSection }) {
 
           {/* Contact info */}
           <div>
-            <h3 className={`text-sm font-bold uppercase tracking-wider mb-5 ${isDarkMode ? "text-gray-300" : "text-gray-700"}`}>
+            <h3 className={`text-sm font-bold uppercase tracking-wider mb-5 ${isDarkMode ? "text-zinc-400" : "text-zinc-700"}`}>
               Get In Touch
             </h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href="mailto:asfandyar273263@gmail.com"
-                  className={`text-sm transition-colors duration-200 hover:text-amber-500 ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}
+                  className={`text-sm transition-colors duration-200 ${isDarkMode ? "text-zinc-500 hover:text-emerald-400" : "text-zinc-500 hover:text-emerald-600"}`}
                 >
                   asfandyar273263@gmail.com
                 </a>
               </li>
-              <li className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>📍 Quetta, Pakistan</li>
+              <li className={`text-sm ${isDarkMode ? "text-zinc-500" : "text-zinc-500"}`}>📍 Quetta, Pakistan</li>
               <li>
                 <a
                   href="/Latest_Resume.pdf"
                   download
-                  className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-amber-500 to-teal-600 text-white hover:from-amber-600 hover:to-teal-700 transition-all duration-200"
+                  className={`inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${isDarkMode ? "bg-zinc-800 border border-zinc-700 text-zinc-300 hover:bg-zinc-700 hover:text-white" : "bg-zinc-100 border border-zinc-200 text-zinc-700 hover:bg-zinc-200"}`}
                 >
                   Download Resume
                 </a>
@@ -98,15 +84,16 @@ export default function Footer({ isDarkMode, scrollToSection }) {
         </div>
 
         {/* Divider */}
-        <div className={`h-px w-full mb-8 ${isDarkMode ? "bg-[#2d2d33]/60" : "bg-gray-200"}`} />
+        <div className={`h-px w-full mb-8 ${isDarkMode ? "bg-zinc-800" : "bg-zinc-200"}`} />
 
         {/* Bottom row */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-          
-
+          <p className={`text-xs ${isDarkMode ? "text-zinc-600" : "text-zinc-400"}`}>
+            © {new Date().getFullYear()} Asfand Yar. All rights reserved.
+          </p>
           <motion.button
             onClick={scrollTop}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${isDarkMode ? "bg-[#1c1c1e] border border-[#2d2d33] text-gray-300 hover:border-amber-800/50 hover:text-white" : "bg-gray-100 border border-gray-200 text-gray-600 hover:bg-gray-200"}`}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${isDarkMode ? "bg-zinc-900 border border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:text-white" : "bg-zinc-100 border border-zinc-200 text-zinc-600 hover:bg-zinc-200"}`}
             whileHover={{ scale: 1.05, y: -1 }}
             whileTap={{ scale: 0.97 }}
           >

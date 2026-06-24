@@ -1,16 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  BrainCircuit,
-  Server,
-  Bot,
-  Database,
-  Mic,
-  Code,
-  Zap,
-  Globe,
-} from "lucide-react";
+import { BrainCircuit, Server, Bot, Database, Mic, Code, Zap, Globe } from "lucide-react";
 
 const SERVICES = [
   {
@@ -18,72 +9,54 @@ const SERVICES = [
     title: "Prompt Engineering",
     description:
       "Designing, optimizing, and evaluating prompts for LLMs to maximize accuracy, consistency, and performance across enterprise use cases.",
-    gradient: "from-violet-500 to-indigo-700",
-    glow: "group-hover:shadow-violet-500/20",
   },
   {
     icon: Bot,
     title: "RAG Pipeline Development",
     description:
       "End-to-end Retrieval-Augmented Generation systems with vector search, semantic chunking, and context-aware LLM responses for accurate document Q&A.",
-    gradient: "from-cyan-500 to-teal-700",
-    glow: "group-hover:shadow-cyan-500/20",
   },
   {
     icon: Mic,
     title: "AI Voice Agents",
     description:
-      "Conversational voice agents powered by local or cloud LLMs with RAG integration  fully offline capable, low-latency, and production-ready.",
-    gradient: "from-purple-500 to-violet-700",
-    glow: "group-hover:shadow-purple-500/20",
+      "Conversational voice agents powered by local or cloud LLMs with RAG integration — fully offline capable, low-latency, and production-ready.",
   },
   {
     icon: Server,
     title: "AI Backend APIs",
     description:
       "Scalable Python backends with FastAPI and Node.js, integrating LLM capabilities, vector databases, and third-party AI APIs for real-world applications.",
-    gradient: "from-green-500 to-emerald-700",
-    glow: "group-hover:shadow-green-500/20",
   },
   {
     icon: Database,
     title: "Data Pipeline & Processing",
     description:
       "Automated ETL pipelines to extract, clean, and format raw data into high-quality datasets for ML training, benchmarking, and AI evaluation.",
-    gradient: "from-teal-500 to-cyan-700",
-    glow: "group-hover:shadow-teal-500/20",
   },
   {
     icon: Code,
     title: "LLM Integration",
     description:
-      "Seamlessly integrating OpenAI, local LLMs via LM Studio, and open-source models into existing products  with evaluation pipelines and performance tracking.",
-    gradient: "from-blue-500 to-indigo-700",
-    glow: "group-hover:shadow-blue-500/20",
+      "Seamlessly integrating OpenAI, local LLMs via LM Studio, and open-source models into existing products — with evaluation pipelines and performance tracking.",
   },
   {
     icon: Code,
     title: "Frontend Development",
     description:
-      "Responsive, pixel-perfect UIs built with React and Next.js, Tailwind CSS, and Framer Motion  from landing pages to full web applications.",
-    gradient: "from-blue-500 to-indigo-700",
-    glow: "group-hover:shadow-blue-500/20",
+      "Responsive, pixel-perfect UIs built with React and Next.js, Tailwind CSS, and Framer Motion — from landing pages to full web applications.",
   },
   {
     icon: Globe,
     title: "Client Web Projects",
     description:
-      "End-to-end websites for clients with clean design, mobile-first layout, SEO optimisation, and fast deployment  from healthcare to SaaS.",
-    gradient: "from-rose-500 to-pink-700",
-    glow: "group-hover:shadow-rose-500/20",
+      "End-to-end websites for clients with clean design, mobile-first layout, SEO optimisation, and fast deployment — from healthcare to SaaS.",
   },
   {
     icon: Zap,
     title: "AI Performance Tuning",
     description:
       "Benchmarking open-source and proprietary LLMs, reducing latency, and optimising inference pipelines for production AI systems.",
-    gradient: "from-yellow-400 to-orange-600",
-    glow: "group-hover:shadow-yellow-500/20",
   },
 ];
 
@@ -96,42 +69,25 @@ const fadeUp = (delay = 0) => ({
 
 export default function ServicesSection({ isDarkMode }) {
   const card = isDarkMode
-    ? "bg-[#1c1c1e] border border-[#2d2d33] hover:border-amber-800/60"
-    : "bg-white border border-gray-200 hover:border-amber-300";
+    ? "bg-zinc-900 border border-zinc-800 hover:border-emerald-800/60"
+    : "bg-white border border-zinc-200 hover:border-emerald-300";
 
   return (
     <section
       id="services"
-      className={`relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#121214]" : "bg-white"}`}
+      className={`relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#111111]" : "bg-white"}`}
     >
-      {/* Background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div
-          className={`absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[140px] ${isDarkMode ? "bg-amber-900/10" : "bg-amber-50/70"}`}
-        />
-        <div
-          className={`absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[120px] ${isDarkMode ? "bg-teal-900/10" : "bg-teal-50/60"}`}
-        />
-      </div>
-
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <motion.div {...fadeUp()} className="text-center mb-14">
-          <span
-            className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-amber-900/30 text-amber-400 border border-amber-800/40" : "bg-amber-50 text-amber-600 border border-amber-200"}`}
-          >
+          <span className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-emerald-900/20 text-emerald-400 border border-emerald-800/40" : "bg-emerald-50 text-emerald-700 border border-emerald-200"}`}>
             What I Do
           </span>
-          <h2
-            className={`text-4xl sm:text-5xl font-extrabold tracking-tight ${isDarkMode ? "text-white" : "text-gray-900"}`}
-          >
+          <h2 className={`text-4xl sm:text-5xl font-extrabold tracking-tight ${isDarkMode ? "text-white" : "text-zinc-900"}`}>
             Services I <span className="shiny-text">Offer</span>
           </h2>
-          <p
-            className={`mt-4 text-base max-w-xl mx-auto ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}
-          >
-            From prompt design to production AI systems end-to-end Gen AI
-            backend services.
+          <p className={`mt-4 text-base max-w-xl mx-auto ${isDarkMode ? "text-zinc-400" : "text-zinc-600"}`}>
+            From prompt design to production AI systems — end-to-end Gen AI backend services.
           </p>
         </motion.div>
 
@@ -143,21 +99,22 @@ export default function ServicesSection({ isDarkMode }) {
               <motion.div
                 key={service.title}
                 {...fadeUp(i * 0.06)}
-                className={`group p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${service.glow} ${card}`}
+                whileHover={{ y: -6, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                className={`group p-5 rounded-2xl border cursor-default ${card}`}
               >
-                <div
-                  className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 bg-gradient-to-br ${service.gradient} shadow-md`}
+                <motion.div
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${isDarkMode ? "bg-emerald-900/30" : "bg-emerald-50"}`}
+                  whileHover={{ scale: 1.15, rotate: 6 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 18 }}
                 >
-                  <Icon className="text-white" size={20} />
-                </div>
-                <h3
-                  className={`text-base font-bold mb-2 leading-snug ${isDarkMode ? "text-white" : "text-gray-900"}`}
-                >
+                  <Icon className={isDarkMode ? "text-emerald-400" : "text-emerald-600"} size={19} />
+                </motion.div>
+                <h3 className={`text-base font-bold mb-2 leading-snug ${isDarkMode ? "text-white" : "text-zinc-900"}`}>
                   {service.title}
                 </h3>
-                <p
-                  className={`text-sm leading-relaxed ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}
-                >
+                <p className={`text-sm leading-relaxed ${isDarkMode ? "text-zinc-500" : "text-zinc-500"}`}>
                   {service.description}
                 </p>
               </motion.div>
@@ -167,14 +124,12 @@ export default function ServicesSection({ isDarkMode }) {
 
         {/* CTA */}
         <motion.div {...fadeUp(0.3)} className="mt-14 text-center">
-          <p
-            className={`text-base mb-5 ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}
-          >
+          <p className={`text-base mb-5 ${isDarkMode ? "text-zinc-500" : "text-zinc-500"}`}>
             Have a project in mind? Let's build something great together.
           </p>
           <motion.a
             href="mailto:asfandyar273263@gmail.com"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-teal-600 hover:from-amber-600 hover:to-teal-700 text-white font-semibold text-sm shadow-lg shadow-amber-500/25 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-semibold shadow-sm transition-all duration-200 bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-900/20"
             whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.97 }}
           >

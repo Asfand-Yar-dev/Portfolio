@@ -8,34 +8,19 @@ const PROJECTS = [
   {
     title: "AI Powered Voice Agent",
     description:
-      "Conversational voice agent built with RAG and a local LLM served via LM Studio. Processes user speech, retrieves context from a vector store, and generates accurate responses  fully offline, zero cloud dependency.",
-    tech: [
-      "Python",
-      "LM Studio",
-      "RAG",
-      "LangChain",
-      "Vector DB",
-      "Speech API",
-    ],
+      "Conversational voice agent built with RAG and a local LLM served via LM Studio. Processes user speech, retrieves context from a vector store, and generates accurate responses — fully offline, zero cloud dependency.",
+    tech: ["Python", "LM Studio", "RAG", "LangChain", "Vector DB", "Speech API"],
     category: "AI & ML",
     featured: true,
-    gradient: "from-violet-600 via-purple-600 to-indigo-700",
     live: null,
   },
   {
     title: "LLM Prompt Optimization Engine",
     description:
       "Prompt engineering framework to benchmark and optimize LLM outputs. Includes automated evaluation pipelines, few-shot template generation, and performance tracking across model versions.",
-    tech: [
-      "Python",
-      "OpenAI API",
-      "Prompt Engineering",
-      "FastAPI",
-      "PostgreSQL",
-    ],
+    tech: ["Python", "OpenAI API", "Prompt Engineering", "FastAPI", "PostgreSQL"],
     category: "AI & ML",
     featured: false,
-    gradient: "from-cyan-500 via-teal-600 to-emerald-700",
     live: null,
   },
   {
@@ -45,7 +30,6 @@ const PROJECTS = [
     tech: ["Python", "Pandas", "NumPy", "REST API", "Data Processing"],
     category: "AI & ML",
     featured: false,
-    gradient: "from-green-500 via-emerald-600 to-teal-700",
     live: null,
   },
   {
@@ -55,7 +39,6 @@ const PROJECTS = [
     tech: ["Web Development", "Responsive Design", "SEO", "UI/UX"],
     category: ["Client", "Frontend"],
     featured: false,
-    gradient: "from-rose-500 via-pink-600 to-fuchsia-700",
     live: "https://healinghandsofvirginia.com",
   },
   {
@@ -65,7 +48,6 @@ const PROJECTS = [
     tech: ["AI Integration", "Web App", "API", "UI/UX"],
     category: ["Client", "Frontend"],
     featured: false,
-    gradient: "from-blue-500 via-indigo-600 to-violet-700",
     live: "https://my1ai.app",
   },
   {
@@ -75,7 +57,6 @@ const PROJECTS = [
     tech: ["Python", "NLTK", "TensorFlow", "Flask", "REST API"],
     category: "Backend",
     featured: false,
-    gradient: "from-orange-500 via-amber-600 to-yellow-600",
     live: null,
   },
   {
@@ -85,7 +66,6 @@ const PROJECTS = [
     tech: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"],
     category: "Frontend",
     featured: false,
-    gradient: "from-pink-500 via-rose-500 to-orange-500",
     live: null,
   },
   {
@@ -95,7 +75,6 @@ const PROJECTS = [
     tech: ["Python", "Pygame", "Game Dev", "OOP"],
     category: "Backend",
     featured: false,
-    gradient: "from-lime-500 via-green-500 to-emerald-600",
     live: null,
   },
   {
@@ -105,110 +84,80 @@ const PROJECTS = [
     tech: ["React", "JavaScript", "React Router", "Tailwind CSS"],
     category: "Frontend",
     featured: false,
-    gradient: "from-sky-500 via-blue-500 to-indigo-600",
     live: null,
   },
 ];
 
 const FILTERS = ["All", "AI & ML", "Frontend", "Client", "Backend"];
 
-const CATEGORY_COLORS = {
-  "AI & ML": {
-    dark: "bg-violet-900/30 text-violet-300 border-violet-800/50",
-    light: "bg-violet-50 text-violet-700 border-violet-200",
-  },
-  Client: {
-    dark: "bg-rose-900/30 text-rose-300 border-rose-800/50",
-    light: "bg-rose-50 text-rose-700 border-rose-200",
-  },
-  Backend: {
-    dark: "bg-green-900/30 text-green-300 border-green-800/50",
-    light: "bg-green-50 text-green-700 border-green-200",
-  },
-  Frontend: {
-    dark: "bg-blue-900/30 text-blue-300 border-blue-800/50",
-    light: "bg-blue-50 text-blue-700 border-blue-200",
-  },
-  "Full Stack": {
-    dark: "bg-indigo-900/30 text-indigo-300 border-indigo-800/50",
-    light: "bg-indigo-50 text-indigo-700 border-indigo-200",
-  },
-};
 
 function ProjectCard({ project, isDarkMode }) {
+  const categories = Array.isArray(project.category) ? project.category : [project.category];
+
   return (
     <motion.div
-      className={`rounded-2xl overflow-hidden border h-full ${isDarkMode ? "bg-[#1c1c1e] border-[#2d2d33]" : "bg-white border-gray-200"}`}
+      className={`rounded-2xl overflow-hidden border h-full flex flex-col ${isDarkMode ? "bg-zinc-900 border-zinc-800" : "bg-white border-zinc-300 shadow-sm"}`}
       whileHover={{
-        y: -6,
+        y: -5,
         boxShadow: isDarkMode
-          ? "0 24px 48px rgba(0,0,0,0.4)"
-          : "0 24px 48px rgba(0,0,0,0.10)",
+          ? "0 20px 40px rgba(0,0,0,0.5)"
+          : "0 20px 40px rgba(0,0,0,0.08)",
       }}
-      transition={{ duration: 0.22, ease: "easeOut" }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
     >
-      {/* Banner */}
-      <div
-        className={`relative h-44 bg-gradient-to-br ${project.gradient} overflow-hidden`}
-      >
-        <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-white/10" />
-        <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-full bg-black/10" />
-
-        <div className="absolute top-4 left-4 flex items-center gap-2">
-          {(Array.isArray(project.category) ? project.category : [project.category]).map((cat) => (
-            <span key={cat} className="px-3 py-1 rounded-full bg-black/30 text-white text-xs font-semibold backdrop-blur-sm border border-white/20">
-              {cat}
-            </span>
-          ))}
-          {project.featured && (
-            <span className="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-400/20 text-yellow-300 text-xs font-semibold backdrop-blur-sm border border-yellow-400/30">
-              <FiStar size={10} className="fill-yellow-300" />
-              Featured
-            </span>
+      {/* Header */}
+      <div className={`relative px-5 pt-4 pb-3 border-b ${isDarkMode ? "border-zinc-800 bg-zinc-900" : "border-zinc-200 bg-zinc-50"}`}>
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex flex-wrap gap-1.5">
+            {categories.map((cat) => (
+              <span
+                key={cat}
+                className={`px-2.5 py-1 rounded-full text-[11px] font-semibold border ${isDarkMode ? "bg-emerald-900/20 border-emerald-800/50 text-emerald-400" : "bg-emerald-50 border-emerald-200 text-emerald-700"}`}
+              >
+                {cat}
+              </span>
+            ))}
+            {project.featured && (
+              <span className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold border ${isDarkMode ? "bg-emerald-900/30 border-emerald-800/50 text-emerald-400" : "bg-emerald-50 border-emerald-300 text-emerald-700"}`}>
+                <FiStar size={10} />
+                Featured
+              </span>
+            )}
+          </div>
+          {project.live && (
+            <motion.a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-colors duration-200 ${isDarkMode ? "border-zinc-700 text-zinc-400 hover:border-emerald-700 hover:text-emerald-300" : "border-zinc-300 text-zinc-600 hover:border-emerald-500 hover:text-emerald-700"}`}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <FiExternalLink size={12} />
+              Live
+            </motion.a>
           )}
         </div>
-
-        <div className="absolute bottom-4 left-4 right-4">
-          <h3 className="text-xl font-extrabold text-white drop-shadow-md leading-tight">
-            {project.title}
-          </h3>
-        </div>
+        <h3 className={`mt-3 text-base font-bold leading-snug ${isDarkMode ? "text-white" : "text-zinc-900"}`}>
+          {project.title}
+        </h3>
       </div>
 
       {/* Body */}
-      <div className="p-5 space-y-4">
-        <p
-          className={`text-sm leading-relaxed ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
-        >
+      <div className="px-5 pt-3 pb-5 flex flex-col flex-1 gap-3">
+        <p className={`text-sm leading-relaxed flex-1 ${isDarkMode ? "text-zinc-400" : "text-zinc-600"}`}>
           {project.description}
         </p>
-
         <div className="flex flex-wrap gap-1.5">
           {project.tech.map((t) => (
             <span
               key={t}
-              className={`px-2.5 py-1 rounded-full text-xs font-medium border ${isDarkMode ? "bg-gray-800/70 border-gray-700 text-gray-300" : "bg-gray-50 border-gray-200 text-gray-600"}`}
+              className={`px-2.5 py-1 rounded-full text-xs font-medium border ${isDarkMode ? "bg-emerald-900/20 border-emerald-800/50 text-emerald-400" : "bg-emerald-50 border-emerald-200 text-emerald-700"}`}
             >
               {t}
             </span>
           ))}
         </div>
-
-        {project.live && (
-          <div className="pt-1">
-            <motion.a
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-amber-500 to-teal-600 text-white hover:from-amber-600 hover:to-teal-700 transition-colors duration-200"
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              <FiExternalLink size={13} />
-              View Live
-            </motion.a>
-          </div>
-        )}
       </div>
     </motion.div>
   );
@@ -229,17 +178,8 @@ export default function Projects({ isDarkMode }) {
   return (
     <section
       id="projects"
-      className={`relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#0c0c0e]" : "bg-[#faf9f7]"}`}
+      className={`relative py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-[#09090b]" : "bg-[#fafafa]"}`}
     >
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div
-          className={`absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full blur-[130px] ${isDarkMode ? "bg-amber-900/15" : "bg-amber-100/60"}`}
-        />
-        <div
-          className={`absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[100px] ${isDarkMode ? "bg-teal-900/15" : "bg-teal-100/50"}`}
-        />
-      </div>
-
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -248,21 +188,14 @@ export default function Projects({ isDarkMode }) {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span
-            className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-amber-900/30 text-amber-400 border border-amber-800/40" : "bg-amber-50 text-amber-600 border border-amber-200"}`}
-          >
+          <span className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-emerald-900/20 text-emerald-400 border border-emerald-800/40" : "bg-emerald-50 text-emerald-700 border border-emerald-200"}`}>
             Portfolio
           </span>
-          <h2
-            className={`text-4xl sm:text-5xl font-extrabold tracking-tight ${isDarkMode ? "text-white" : "text-gray-900"}`}
-          >
+          <h2 className={`text-4xl sm:text-5xl font-extrabold tracking-tight ${isDarkMode ? "text-white" : "text-zinc-900"}`}>
             My <span className="shiny-text">Projects</span>
           </h2>
-          <p
-            className={`mt-4 text-base max-w-xl mx-auto ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}
-          >
-            Real-world AI systems, RAG pipelines, and client applications built
-            in production environments.
+          <p className={`mt-4 text-base max-w-xl mx-auto ${isDarkMode ? "text-zinc-400" : "text-zinc-600"}`}>
+            Real-world AI systems, RAG pipelines, and client applications built in production environments.
           </p>
         </motion.div>
 
@@ -279,10 +212,10 @@ export default function Projects({ isDarkMode }) {
               onClick={() => setActiveFilter(f)}
               className={`px-5 py-2 rounded-full text-sm font-semibold border transition-colors duration-200 ${
                 activeFilter === f
-                  ? "bg-gradient-to-r from-amber-500 to-teal-600 text-white border-transparent shadow-lg shadow-amber-500/20"
+                  ? "bg-emerald-600 text-white border-emerald-600 shadow-sm shadow-emerald-900/30"
                   : isDarkMode
-                    ? "bg-transparent text-gray-400 border-gray-700 hover:border-gray-500 hover:text-gray-200"
-                    : "bg-white text-gray-600 border-gray-300 hover:border-gray-400"
+                    ? "bg-transparent text-zinc-500 border-zinc-800 hover:border-zinc-600 hover:text-zinc-300"
+                    : "bg-white text-zinc-600 border-zinc-300 hover:border-zinc-400 hover:text-zinc-900"
               }`}
             >
               {f}
@@ -297,7 +230,7 @@ export default function Projects({ isDarkMode }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
           >
             {filtered.map((project, i) => (
               <motion.div
