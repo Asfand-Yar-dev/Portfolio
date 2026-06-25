@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
 import { FiBriefcase, FiCalendar, FiMapPin } from "react-icons/fi"
 
@@ -53,6 +54,8 @@ const fadeUp = (delay = 0) => ({
 })
 
 export default function Experience({ isDarkMode }) {
+  const [hoveredIndex, setHoveredIndex] = useState(null)
+
   const card = isDarkMode
     ? "bg-zinc-900 border border-zinc-800"
     : "bg-white border border-zinc-200 shadow-sm"
@@ -85,7 +88,12 @@ export default function Experience({ isDarkMode }) {
             {EXPERIENCES.map((exp, i) => (
               <motion.div
                 key={exp.company}
-                {...fadeUp(i * 0.15)}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: i * 0.15, ease: "easeOut" }}
+                onMouseEnter={() => setHoveredIndex(i)}
+                onMouseLeave={() => setHoveredIndex(null)}
                 className="relative pl-16 sm:pl-20"
               >
                 {/* Timeline dot */}
@@ -93,7 +101,11 @@ export default function Experience({ isDarkMode }) {
                   <div className="w-2 h-2 rounded-full bg-emerald-500" />
                 </div>
 
-                <div className={`p-6 rounded-2xl ${card} transition-all duration-300 hover:-translate-y-1`}>
+                <motion.div
+                  animate={{ y: hoveredIndex === i ? -4 : 0 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  className={`p-6 rounded-2xl ${card}`}
+                >
                   {/* Top row */}
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
                     <div>
@@ -142,7 +154,7 @@ export default function Experience({ isDarkMode }) {
                       </span>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>
