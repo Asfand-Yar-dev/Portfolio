@@ -14,9 +14,15 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Asfand Yar | Gen AI Backend Developer",
   description: "Portfolio of Asfand Yar, a Gen AI Backend Developer specializing in LLMs, RAG pipelines, Prompt Engineering, and Python backend systems.",
-  icons: {
-    icon: "/favicon.png",
+  alternates:{
+    canonical: "/",
   },
+  icons: {
+  icon: [
+    { url: "/favicon.ico" },
+    { url: "/favicon.png", type: "image/png" },
+  ],
+}
 };
 
 export default function RootLayout({
