@@ -41,6 +41,7 @@ export default function RootLayout({
       <body className={`${outfit.className} antialiased`}>
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
