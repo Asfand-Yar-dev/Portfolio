@@ -4,7 +4,7 @@
 
 **Building LLM-powered systems, RAG pipelines, and scalable AI APIs.**
 
-[![Live Site](https://img.shields.io/badge/Live-asfandyar.tech-10b981?style=for-the-badge&logo=vercel&logoColor=white)](https://asfandyar.tech)
+[![Portfolio](https://img.shields.io/badge/Portfolio-10b981?style=for-the-badge&logoColor=white)](https://asfandyar.tech)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/asfandyar100/)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Asfand-Yar-dev)
 
