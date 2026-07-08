@@ -105,7 +105,6 @@ npm run lint    # Lint the codebase
 - **Email** — asfandyar273263@gmail.com
 - **LinkedIn** — [asfandyar100](https://www.linkedin.com/in/asfandyar100/)
 - **GitHub** — [Asfand-Yar-dev](https://github.com/Asfand-Yar-dev)
-- **WhatsApp** — [+92 331 0329489](https://wa.me/923310329489)
 
 <div align="center">
 
