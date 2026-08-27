@@ -72,7 +72,7 @@ export default function Footer({ isDarkMode, scrollToSection }) {
               <li className={`text-sm ${isDarkMode ? "text-zinc-500" : "text-zinc-500"}`}>📍 Quetta, Pakistan</li>
               <li>
                 <a
-                  href="/Latest_Resume.pdf"
+                  href="/Asfand_Yar.pdf"
                   download
                   className={`inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${isDarkMode ? "bg-zinc-800 border border-zinc-700 text-zinc-300 hover:bg-zinc-700 hover:text-white" : "bg-zinc-100 border border-zinc-200 text-zinc-700 hover:bg-zinc-200"}`}
                 >

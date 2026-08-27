@@ -40,5 +40,3 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# resume (keep private, served locally only)
-public/Latest_Resume.pdf

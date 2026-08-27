@@ -176,7 +176,7 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
 
             {/* Resume desktop */}
             <motion.a
-              href="/Latest_Resume.pdf"
+              href="/Asfand_Yar.pdf"
               download
               className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold transition-all duration-200 shadow-md shadow-emerald-900/30"
               whileHover={{ scale: 1.04, y: -1 }}
@@ -241,7 +241,7 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
               </nav>
               <div className={`p-6 border-t ${isDarkMode ? "border-zinc-800" : "border-zinc-200"}`}>
                 <a
-                  href="/Latest_Resume.pdf"
+                  href="/Asfand_Yar.pdf"
                   download
                   className="flex items-center gap-2 justify-center w-full px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm"
                   onClick={() => setIsMenuOpen(false)}
