@@ -34,7 +34,7 @@ export default function About({ isDarkMode }) {
     >
       <div className="max-w-7xl mx-auto relative z-10 w-full">
         {/* Section header */}
-        <motion.div {...fadeUp()} className="text-center mb-10 sm:mb-16">
+        <motion.div {...fadeUp()} className="text-center mb-10 sm:mb-12">
           <span
             className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${isDarkMode ? "bg-emerald-900/20 text-emerald-400 border border-emerald-800/40" : "bg-emerald-50 text-emerald-700 border border-emerald-200"}`}
           >
@@ -48,15 +48,13 @@ export default function About({ isDarkMode }) {
         <div className="max-w-3xl mx-auto">
           <div className="space-y-8">
             <motion.div {...fadeUp(0.15)} className="text-center">
-              <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-zinc-900"}`}>
-                AI First Software Developer from Pakistan
-              </h3>
               <div className={`space-y-4 text-base leading-relaxed ${isDarkMode ? "text-zinc-400" : "text-zinc-600"}`}>
                 <p>
                   I'm{" "}
                   <strong className={isDarkMode ? "text-white" : "text-zinc-900"}>Asfand Yar</strong>
                   , an{" "}
-                  AI-First Software Developer and{" "}
+                  <strong className={isDarkMode ? "text-white" : "text-zinc-900"}>AI-First Software Developer{" "}</strong>
+                  and {""}
                   <strong className={isDarkMode ? "text-white" : "text-zinc-900"}>GenAI Engineer</strong>
                   {" "}with hands-on industry experience building LLM-powered systems, RAG pipelines, agentic AI workflows, and scalable AI APIs for real-world applications.
                 </p>
@@ -71,10 +69,12 @@ export default function About({ isDarkMode }) {
                 </p>
                 <p>
                   With a strong backend foundation in{" "}
-                  <strong className={isDarkMode ? "text-white" : "text-zinc-900"}>Python, FastAPI, and Node.js</strong>
-                  , I bridge the gap between cutting-edge AI research and
-                  real-world software products.
+                  <strong className={isDarkMode ? "text-white" : "text-zinc-900"}>Python and FastAPI</strong>
+                  , I build scalable backend systems and integrate{" "}
+                  <strong className={isDarkMode ? "text-white" : "text-zinc-900"}>Generative AI, LLMs, and RAG</strong>{" "}
+                  to create intelligent software applications.
                 </p>
+
               </div>
             </motion.div>
 
