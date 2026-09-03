@@ -49,16 +49,18 @@ export default function About({ isDarkMode }) {
           <div className="space-y-8">
             <motion.div {...fadeUp(0.15)} className="text-center">
               <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-zinc-900"}`}>
-                Gen AI Backend Developer from Pakistan 🇵🇰
+                AI First Software Developer from Pakistan
               </h3>
               <div className={`space-y-4 text-base leading-relaxed ${isDarkMode ? "text-zinc-400" : "text-zinc-600"}`}>
                 <p>
                   I'm{" "}
                   <strong className={isDarkMode ? "text-white" : "text-zinc-900"}>Asfand Yar</strong>
-                  , a Gen AI Backend Developer with hands-on industry experience
-                  building LLM-powered systems, RAG pipelines, and scalable AI
-                  APIs for enterprise applications.
+                  , an{" "}
+                  AI-First Software Developer and{" "}
+                  <strong className={isDarkMode ? "text-white" : "text-zinc-900"}>GenAI Engineer</strong>
+                  {" "}with hands-on industry experience building LLM-powered systems, RAG pipelines, agentic AI workflows, and scalable AI APIs for real-world applications.
                 </p>
+
                 <p>
                   I specialize in{" "}
                   <strong className={isDarkMode ? "text-white" : "text-zinc-900"}>Prompt Engineering</strong>{" "}

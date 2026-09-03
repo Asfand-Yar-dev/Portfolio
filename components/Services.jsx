@@ -41,12 +41,6 @@ const SERVICES = [
       "Seamlessly integrating OpenAI, local LLMs via LM Studio, and open-source models into existing products — with evaluation pipelines and performance tracking.",
   },
   {
-    icon: Code,
-    title: "Frontend Development",
-    description:
-      "Responsive, pixel-perfect UIs built with React and Next.js, Tailwind CSS, and Framer Motion — from landing pages to full web applications.",
-  },
-  {
     icon: Globe,
     title: "Client Web Projects",
     description:
@@ -57,6 +51,30 @@ const SERVICES = [
     title: "AI Performance Tuning",
     description:
       "Benchmarking open-source and proprietary LLMs, reducing latency, and optimising inference pipelines for production AI systems.",
+  },
+  {
+  icon: Bot,
+  title: "AI Agent Development",
+  description:
+      "Built agentic AI workflows using LLMs, tool integration, and automated decision-making to create intelligent systems capable of handling multi-step tasks.",
+  },
+  {
+    icon: Code,
+    title: "AI Workflow Automation",
+    description:
+      "Designed automated AI workflows using n8n, connecting LLMs, APIs, and external services to streamline repetitive tasks and build intelligent application workflows.",
+  },
+  {
+    icon: Database,
+    title: "AI Application Deployment",
+    description:
+      "Containerizing and deploying AI applications with Docker, managing development environments, dependencies, and reliable application workflows.",
+  },
+  {
+    icon: Code,
+    title: "Frontend Development",
+    description:
+      "Responsive, pixel-perfect UIs built with React and Next.js, Tailwind CSS, and Framer Motion — from landing pages to full web applications.",
   },
 ];
 

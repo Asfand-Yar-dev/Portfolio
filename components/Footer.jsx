@@ -69,7 +69,7 @@ export default function Footer({ isDarkMode, scrollToSection }) {
                   asfandyar273263@gmail.com
                 </a>
               </li>
-              <li className={`text-sm ${isDarkMode ? "text-zinc-500" : "text-zinc-500"}`}>📍 Quetta, Pakistan</li>
+              <li className={`text-sm ${isDarkMode ? "text-zinc-500" : "text-zinc-500"}`}>📍Islamabad, Pakistan</li>
               <li>
                 <a
                   href="/Asfand_Yar.pdf"

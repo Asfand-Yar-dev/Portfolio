@@ -21,10 +21,12 @@ const NAV_ITEMS = [
 ];
 
 const ROLES = [
-  "Gen AI Backend Developer",
+  "AI First Software Developer",
+  "Gen AI Engineer",
   "Prompt Engineer",
   "Python & LLM Engineer",
   "RAG Pipeline Builder",
+  "Backend Developer",
   "Frontend Developer",
 ];
 
@@ -296,9 +298,8 @@ export default function Hero({ isDarkMode, toggleTheme, scrollToSection }) {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className={`text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0 ${isDarkMode ? "text-zinc-400" : "text-zinc-600"}`}
               >
-                I build AI-powered backend systems with Python, LLMs, and RAG
-                pipelines — and craft clean frontends with React & Next.js
-                turning ideas into scalable, production-ready applications.
+                I build AI-powered applications with Python, LLMs, RAG pipelines, and AI agents — developing scalable backend systems and intelligent workflows that turn ideas into reliable, production-ready software.
+
               </motion.p>
 
               {/* CTAs */}

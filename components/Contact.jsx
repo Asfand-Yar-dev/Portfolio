@@ -13,7 +13,7 @@ const SOCIAL = [
 
 const INFO = [
   { icon: FiMail,   label: "Email",    value: "asfandyar273263@gmail.com" },
-  { icon: FiMapPin, label: "Location", value: "Quetta, Pakistan"           },
+  { icon: FiMapPin, label: "Location", value: "Islamabad, Pakistan"           },
   { icon: FiPhone,  label: "Response", value: "Within 24 hours"            },
 ]
 

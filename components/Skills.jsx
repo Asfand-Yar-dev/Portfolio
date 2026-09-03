@@ -11,6 +11,8 @@ const SKILLS = {
     { name: "LLM Integration",    level: 85 },
     { name: "RAG Pipelines",      level: 82 },
     { name: "OpenAI API",         level: 85 },
+    { name: "AI Agents",          level: 70 },
+    {name: "n8n",                 level: 75},
     { name: "LangChain",          level: 78 },
     { name: "Prompt Engineering", level: 88 },
     { name: "Data Processing",    level: 80 },
@@ -20,31 +22,35 @@ const SKILLS = {
     { name: "Python",         level: 80 },
     { name: "Node.js",        level: 75 },
     { name: "Express.js",     level: 60 },
+    { name: "NestJS",         level: 60 },
     { name: "FastAPI",        level: 75 },
     { name: "REST APIs",      level: 88 },
     { name: "Authentication", level: 82 },
     { name: "WebSockets",     level: 65 },
+  ],
+  "Database & Cloud": [
+    { name: "Redis", level: 60 },
+    { name: "MongoDB",    level: 78 },
+    { name: "PostgreSQL", level: 60 },
+    { name: "MySQL",      level: 82 },
+    { name: "Vector DBs", level: 70 },
+    { name: "Firebase",   level: 70 },
   ],
   "Frontend": [
     { name: "React.js",        level: 80 },
     { name: "Next.js",         level: 82 },
     { name: "TypeScript",      level: 70 },
     { name: "JavaScript ES6+", level: 85 },
+    { name: "UI Development",  level: 70 },
     { name: "Tailwind CSS",    level: 90 },
     { name: "HTML & CSS",      level: 92 },
     { name: "Framer Motion",   level: 70 },
   ],
-  "Database & Cloud": [
-    { name: "MongoDB",    level: 78 },
-    { name: "PostgreSQL", level: 60 },
-    { name: "MySQL",      level: 82 },
-    { name: "Vector DBs", level: 70 },
-    { name: "Redis",      level: 60 },
-    { name: "Firebase",   level: 70 },
-  ],
   "Tools": [
     { name: "Git & GitHub",     level: 88 },
     { name: "Docker",           level: 65 },
+    { name: "Claude Code",      level: 90 },
+    { name: "Antigravity",      level: 90 },
     { name: "Postman",          level: 80 },
     { name: "VS Code",          level: 94 },
     { name: "Figma",            level: 70 },
@@ -53,12 +59,15 @@ const SKILLS = {
 }
 
 const SUMMARY_PILLS = [
-  "AI & LLM Expert",
-  "Prompt Engineer",
-  "Frontend Proficient",
-  "Backend Capable",
-  "Database Proficient",
+"GenAI Engineer",
+"LLM & RAG",
+"AI Agents",
+"Prompt Engineering",
+"Backend Development",
+"API Development",
+"Frontend Development",
 ]
+
 
 function SkillBar({ skill, delay, isDarkMode }) {
   const [animated, setAnimated] = useState(false)

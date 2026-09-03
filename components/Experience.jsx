@@ -16,7 +16,7 @@ const EXPERIENCES = [
       "Engineered Retrieval-Augmented Generation (RAG) pipelines to enhance model accuracy and contextual query answering.",
       "Collaborated with cross-functional teams to deploy scalable AI features, ensuring low-latency data processing and API integration.",
     ],
-    tags: ["Python", "LLMs", "RAG", "Prompt Engineering", "FastAPI"],
+   tags: ["Python", "Generative AI", "LLMs", "RAG", "AI Agents", "Prompt Engineering", "FastAPI", "REST APIs", "Backend Development", "Docker", "API Integration" ],
   },
   {
     company: "Developers Hub Corporation",
@@ -29,7 +29,7 @@ const EXPERIENCES = [
       "Conducted foundational prompt engineering and benchmarked various open-source language models to document performance and response accuracy.",
       "Built internal UI dashboards and automated scripts to visualize AI outputs and test API endpoints, streamlining day-to-day development tasks.",
     ],
-    tags: ["Python", "Prompt Engineering", "Data Processing", "Open-source LLMs", "API Testing"],
+    tags: ["Python", "Prompt Engineering", "Data Processing", "Open-source LLMs", "API Testing",],
   },
   {
     company: "CodeAlpha",
@@ -42,7 +42,7 @@ const EXPERIENCES = [
       "Translated design mockups into clean, semantic HTML/CSS and JavaScript code.",
       "Assisted in debugging UI issues and improving website performance metrics.",
     ],
-    tags: ["HTML", "CSS", "JavaScript", "Mobile-first", "UI Debugging"],
+    tags: ["HTML", "CSS", "JavaScript", "Mobile-first", "UI Debugging", "Frontend Architecture"],
   },
 ]
 
