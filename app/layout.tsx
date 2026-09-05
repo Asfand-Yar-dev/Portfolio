@@ -14,8 +14,8 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://asfandyar.tech"),
-  title: "Asfand Yar | Gen AI Backend Developer",
-  description: "Portfolio of Asfand Yar, a Gen AI Backend Developer specializing in LLMs, RAG pipelines, Prompt Engineering, and Python backend systems.",
+  title: "Asfand Yar | AI-First Software Developer | GenAI Engineer", 
+  description: "Portfolio of Asfand Yar, an AI-First Software Developer and GenAI Engineer specializing in Generative AI, LLMs, RAG pipelines, AI agents, prompt engineering, and Python backend development.",
   alternates:{
     canonical: "/",
   },
